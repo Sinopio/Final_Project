@@ -14,6 +14,7 @@ public class PlayerMove : MonoBehaviour
     public float camera_rotation_limit;
 
     public Camera my_camera;
+    public GameObject Gun;
     private float camer_rotation;
     private Rigidbody rig;
 
@@ -56,6 +57,7 @@ public class PlayerMove : MonoBehaviour
         camer_rotation = Mathf.Clamp(camer_rotation, -camera_rotation_limit, camera_rotation_limit);
 
         my_camera.transform.localEulerAngles = new Vector3(camer_rotation, 0f, 0f);
+        Gun.transform.localEulerAngles = new Vector3(camer_rotation, 0f, 0f);
     }
 
 }
