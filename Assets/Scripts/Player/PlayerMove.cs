@@ -4,18 +4,14 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {   
-    // 이동속도
-    public float move_speed;
-    // 점프범위
-    public float jump_range;
-    // 회전속도
-    public float rotate_speed;
-    // 카메라 상하회전 범위
-    public float camera_rotation_limit;
+    public float moveSpeed;
+    public float jumpRange;
+    public float rotateSpeed;
+    public float cameraRotationLimit;
 
-    public Camera my_camera;
-    public GameObject Gun;
-    private float camer_rotation;
+    public Camera myCamera;
+    public GameObject gun;
+    private float camerRotation;
     private Rigidbody rig;
 
     private void Start()
@@ -26,8 +22,8 @@ public class PlayerMove : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
-        Rotation();
-        Camera_Rotation();
+        Rotate();
+        RotateCamera();
     }
 
     private void Move()
@@ -37,27 +33,27 @@ public class PlayerMove : MonoBehaviour
 
         Vector3 Horizontla_move = transform.right * X_move;
         Vector3 Vertical_move = transform.forward * Z_move;
-        Vector3 _move = (Horizontla_move + Vertical_move).normalized * move_speed;
+        Vector3 _move = (Horizontla_move + Vertical_move).normalized * moveSpeed;
 
         rig.MovePosition(transform.position + _move * Time.deltaTime);
     }
 
-    private void Rotation()
+    private void Rotate()
     {
         float _rotate = Input.GetAxisRaw("Mouse X");
-        Vector3 player_rotaion = new Vector3(0.0f, _rotate, 0.0f) * rotate_speed;
+        Vector3 player_rotaion = new Vector3(0.0f, _rotate, 0.0f) * rotateSpeed;
         rig.MoveRotation(rig.rotation * Quaternion.Euler(player_rotaion));
     }
 
-    private void Camera_Rotation()
+    
+    private void RotateCamera()
     {
         float _xRotation = Input.GetAxisRaw("Mouse Y");
-        float _cameraRotationX = _xRotation * rotate_speed;
-        camer_rotation -= _cameraRotationX;
-        camer_rotation = Mathf.Clamp(camer_rotation, -camera_rotation_limit, camera_rotation_limit);
+        float _cameraRotationX = _xRotation * rotateSpeed;
+        camerRotation -= _cameraRotationX;
+        camerRotation = Mathf.Clamp(camerRotation, -cameraRotationLimit, cameraRotationLimit);
 
-        my_camera.transform.localEulerAngles = new Vector3(camer_rotation, 0f, 0f);
-        Gun.transform.localEulerAngles = new Vector3(camer_rotation, 0f, 0f);
+        myCamera.transform.localEulerAngles = new Vector3(camerRotation, 0f, 0f);
+        //gun.transform.localEulerAngles = new Vector3(camerRotation, 0f, 0f);
     }
-
 }

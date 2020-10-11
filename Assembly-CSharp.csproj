@@ -56,14 +56,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Player\PlayerMove.cs" />
-    <Compile Include="Assets\Scripts\Manager\Gun_Info.cs" />
-    <Compile Include="Assets\Scripts\Manager\Mob_Info.cs" />
-    <Compile Include="Assets\Scripts\Gun\Gun_State.cs" />
-    <Compile Include="Assets\Scripts\Manager\Mob_Manager_Script.cs" />
-    <Compile Include="Assets\Scripts\Zombie\Zombie_Animation.cs" />
-    <Compile Include="Assets\Scripts\Manager\Gun_Manager_Script.cs" />
-    <Compile Include="Assets\Scripts\Zombie\Zombie_State.cs" />
-    <Compile Include="Assets\Scripts\Player\Player_Gun_Script.cs" />
+    <Compile Include="Assets\Download_Assets\SMC Pack 1\Demo\DemoAssets\V_SMC_Camera.cs" />
+    <Compile Include="Assets\Scripts\Zombie\ZombieNaviScript.cs" />
+    <Compile Include="Assets\Scripts\Gun\GunFireScript.cs" />
+    <Compile Include="Assets\Scripts\Manager\GunInfo.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerGunScript.cs" />
+    <Compile Include="Assets\Scripts\Gun\PickGunScript.cs" />
+    <Compile Include="Assets\Scripts\Manager\MobInfo.cs" />
+    <Compile Include="Assets\Scripts\Gun\GunStateScript.cs" />
+    <Compile Include="Assets\Download_Assets\SMC Pack 1\Demo\DemoAssets\V_Text.cs" />
+    <Compile Include="Assets\Scripts\Manager\MobManagerScript.cs" />
+    <Compile Include="Assets\Scripts\Manager\CursorMangerScript.cs" />
+    <Compile Include="Assets\Download_Assets\SMC Pack 1\Demo\DemoAssets\V_SMC_Handler.cs" />
+    <Compile Include="Assets\Scripts\Zombie\ZombieAnimation.cs" />
+    <Compile Include="Assets\Scripts\Manager\GameMangerScript.cs" />
+    <Compile Include="Assets\Scripts\UI\GunUiScript.cs" />
+    <Compile Include="Assets\Scripts\Manager\GunManagerScript.cs" />
+    <Compile Include="Assets\Scripts\Zombie\ZombieState.cs" />
+    <Compile Include="Assets\Scripts\Zombie\ZombieSectorScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
