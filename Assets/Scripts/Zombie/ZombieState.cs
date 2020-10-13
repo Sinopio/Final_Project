@@ -5,9 +5,11 @@ using UnityEngine;
 public class ZombieState : MonoBehaviour
 {
     // 몹 매니저를 넣어줄 에정(최적화문제로 Find보다 지정이 좋을듯 하여)
-    public GameObject mobManager;
+    [SerializeField]
+    private GameObject mobManager;
     // 몹 매니저에서 불러올 정보의 번호
-    public int mobNumber;
+    [SerializeField]
+    private int mobNumber;
     private MobManagerScript manager;
 
     // 몬스터 프리팝에 붙어 작동할 스크립트
@@ -19,8 +21,10 @@ public class ZombieState : MonoBehaviour
     public int zombieState;
 
     // 플레이어와 몬스터 사이의 거리
-    public float distance;
-    public GameObject player;
+    [SerializeField]
+    private float distance;
+    [SerializeField]
+    private GameObject player;
     private void Start()
     {
         manager = mobManager.GetComponent<MobManagerScript>();

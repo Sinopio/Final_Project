@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Zombie
   - Gun
+  - MapObject
   layers:
   - Default
   - TransparentFX

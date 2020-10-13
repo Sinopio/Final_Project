@@ -5,7 +5,8 @@ using UnityEditor;
 
 public class ZombieSectorScript : MonoBehaviour
 {
-    public GameObject player;
+    [SerializeField]
+    private GameObject player;
 
     [SerializeField]
     private float angleRange;
@@ -34,10 +35,14 @@ public class ZombieSectorScript : MonoBehaviour
             isCollision = false;
     }
 
+
+    
     private void OnDrawGizmos()
     {
         Handles.color = isCollision ? red : blue;
         Handles.DrawSolidArc(transform.position, Vector3.up, transform.forward, angleRange / 2, distance);
         Handles.DrawSolidArc(transform.position, Vector3.up, transform.forward, -angleRange / 2, distance);
     }
+
+
 }

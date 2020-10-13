@@ -5,8 +5,10 @@ using UnityEngine.UI;
 
 public class GunUiScript : MonoBehaviour
 {
-    public GameObject player;
-    public Text ammoText;
+    [SerializeField]
+    private GameObject player;
+    [SerializeField]
+    private Text ammoText;
     GunStateScript gunStateScript;
     PlayerGunScript playerGunScript;
 

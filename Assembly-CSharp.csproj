@@ -69,11 +69,12 @@
     <Compile Include="Assets\Scripts\Manager\CursorMangerScript.cs" />
     <Compile Include="Assets\Download_Assets\SMC Pack 1\Demo\DemoAssets\V_SMC_Handler.cs" />
     <Compile Include="Assets\Scripts\Zombie\ZombieAnimation.cs" />
-    <Compile Include="Assets\Scripts\Manager\GameMangerScript.cs" />
+    <Compile Include="Assets\Scripts\Zombie\ZombieSectorScript.cs" />
     <Compile Include="Assets\Scripts\UI\GunUiScript.cs" />
     <Compile Include="Assets\Scripts\Manager\GunManagerScript.cs" />
     <Compile Include="Assets\Scripts\Zombie\ZombieState.cs" />
-    <Compile Include="Assets\Scripts\Zombie\ZombieSectorScript.cs" />
+    <Compile Include="Assets\Scripts\UI\Billboard.cs" />
+    <Compile Include="Assets\Scripts\Zombie\ZombieRayScript.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

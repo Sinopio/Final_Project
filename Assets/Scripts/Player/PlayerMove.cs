@@ -3,14 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
-{   
-    public float moveSpeed;
-    public float jumpRange;
-    public float rotateSpeed;
-    public float cameraRotationLimit;
+{
+    [SerializeField]
+    private float moveSpeed;
+    [SerializeField]
+    private float jumpRange;
+    [SerializeField]
+    private float rotateSpeed;
+    [SerializeField]
+    private float cameraRotationLimit;
 
-    public Camera myCamera;
-    public GameObject gun;
+    [SerializeField]
+    private Camera myCamera;
+    [SerializeField]
+    private GameObject gun;
     private float camerRotation;
     private Rigidbody rig;
 

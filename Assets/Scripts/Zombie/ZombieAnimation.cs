@@ -5,9 +5,9 @@ using UnityEngine;
 public class ZombieAnimation : MonoBehaviour
 {
     // 애니메이션 사용을 위해 Animator 클래스 변수 선언
-    Animator animator;
-    ZombieState state;
-    ZombieSectorScript zombieSectorScript;
+    private Animator animator;
+    private ZombieState state;
+    private ZombieSectorScript zombieSectorScript;
 
     private void Start()
     {

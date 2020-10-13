@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class GunStateScript : MonoBehaviour
 {
-    public GameObject gunManager;
+    [SerializeField]
+    private GameObject gunManager;
     public int gunNumber;
     private GunManagerScript manager;
 

@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class PickGunScript : MonoBehaviour
 {
-    public GameObject player;
+    [SerializeField]
+    private GameObject player;
     PlayerGunScript playerGunScript;
     [SerializeField]
     List<GameObject> invenGun = new List<GameObject>();

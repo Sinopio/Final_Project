@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class PlayerGunScript : MonoBehaviour
 {
-    public GameObject gunObject;
+    [SerializeField]
+    private GameObject gunObject;
     private GunStateScript gunState;
     public bool pickAvailable;
-    public int dropgunNum;
+    [SerializeField]
+    private int dropgunNum;
     public int pickGunNum;
 
-    public GameObject gun0;
-    public GameObject gun1;
+    [SerializeField]
+    private GameObject gun0;
+    [SerializeField]
+    private GameObject gun1;
 
     private void Start()
     {
