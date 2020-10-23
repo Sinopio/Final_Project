@@ -12,34 +12,46 @@ public class ZombieSectorScript : MonoBehaviour
     private float angleRange;
     [SerializeField]
     private float distance;
-    public bool isCollision = false;
+    public bool inSector = false;
 
-    Color blue = new Color(0f, 0f, 1f, 0.2f);
-    Color red = new Color(1f, 0f, 0f, 0.2f);
-    Vector3 direction;
+    private Color blue = new Color(0f, 0f, 1f, 0.2f);
+    private Color red = new Color(1f, 0f, 0f, 0.2f);
+    private Vector3 direction;
 
-    float dotValue = 0f;
+    private float dotValue = 0f;
 
     private void Update()
+    {
+        checkSector();
+    }
+
+    void checkSector()
     {
         dotValue = Mathf.Cos(Mathf.Deg2Rad * (angleRange / 2));
         direction = player.transform.position - transform.position;
         if (direction.magnitude < distance)
         {
             if (Vector3.Dot(direction.normalized, transform.forward) > dotValue)
-                isCollision = true;
+            {
+                //transform.LookAt(new Vector3(player.transform.position.x, -0.670f, player.transform.position.z));
+                inSector = true;
+            }
+
             else
-                isCollision = false;
+            {
+                inSector = false;
+            }
+                
         }
         else
-            isCollision = false;
+        {
+            inSector = false;
+        }
     }
-
-
     
     private void OnDrawGizmos()
     {
-        Handles.color = isCollision ? red : blue;
+        Handles.color = inSector ? red : blue;
         Handles.DrawSolidArc(transform.position, Vector3.up, transform.forward, angleRange / 2, distance);
         Handles.DrawSolidArc(transform.position, Vector3.up, transform.forward, -angleRange / 2, distance);
     }

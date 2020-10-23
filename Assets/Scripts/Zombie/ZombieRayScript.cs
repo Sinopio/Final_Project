@@ -4,14 +4,17 @@ using UnityEngine;
 
 public class ZombieRayScript : MonoBehaviour
 {
-    public bool onSight;
+    public bool inSight;
 
     private ZombieSectorScript zombieSectorScript;
-    private RaycastHit[] raycastHits;
+   
+    private RaycastHit raycastHit;
     [SerializeField]
     private float rayLength;
     [SerializeField]
     private GameObject parent;
+    [SerializeField]
+    private GameObject player;
 
     private void Start()
     {
@@ -24,42 +27,53 @@ public class ZombieRayScript : MonoBehaviour
 
     void checkObstacle()
     {
-        if(zombieSectorScript.isCollision)
+        if (zombieSectorScript.inSector)
         {
             Debug.DrawRay(transform.position, transform.forward * rayLength, Color.red);
-            raycastHits = Physics.RaycastAll(transform.position, transform.forward, rayLength);
-
-            for (int i = 0; i < raycastHits.Length; i++)
+            transform.LookAt(new Vector3(player.transform.position.x, player.transform.position.y+1, player.transform.position.z));
+            if (Physics.Raycast(transform.position, transform.forward, out raycastHit, rayLength))
             {
-                //Debug.Log(raycastHits[i].collider.name + i);
-                if (raycastHits[i].collider.tag == "Player")
+                Debug.Log(raycastHit.collider.name);
+                if(raycastHit.collider.tag == "Player")
                 {
-                    if (i == 0)
-                    {
-                        //Debug.Log(raycastHits[i].collider.name + ": onSight " + i);
-                        onSight = true;
-                    }
-
-                    else if (i >= 2)
-                    {
-                        //Debug.Log(raycastHits[i].collider.name + ": Obstacle " + i);
-                        onSight = false;
-                    }
+                    inSight = true;
+                }
+                else
+                {
+                    inSight = false;
                 }
             }
-        }
-
-        else if (!zombieSectorScript.isCollision)
-        {
-            onSight = false;
         }
     }
 }
 
-// private RaycastHit raycastHit;
+// private RaycastHit[] raycastHits;
 /*
-        if (Physics.Raycast(transform.position, transform.forward, out raycastHit, rayLength))
+if(zombieSectorScript.inSector)
+{
+    Debug.DrawRay(transform.position, transform.forward * rayLength, Color.red);
+    raycastHits = Physics.RaycastAll(transform.position, transform.forward, rayLength);
+    //transform.LookAt(new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z));
+    transform.LookAt(player.transform);
+    for (int i = 0; i < raycastHits.Length; i++)
+    {
+        //Debug.Log(raycastHits[i].collider.name + i);
+        if (raycastHits[i].collider.tag == "Player")
         {
-            Debug.Log(raycastHit.collider.name);
+            if (i == 0)
+            {
+                onSight = true;
+            }
+
+            else if (i >= 2)
+            {
+                onSight = false;
+            }
         }
-*/
+    }
+}
+
+else if (!zombieSectorScript.inSector)
+{
+    onSight = false;
+}*/

@@ -23,28 +23,42 @@ public class ZombieAnimation : MonoBehaviour
 
     void UpdateZombieAni()
     {
-        if (zombieSectorScript.isCollision)
+
+        switch (state.zombieState)
         {
-            switch (state.zombieState)
-            {
-                case 0:
-                    animator.SetBool("Run", false);
-                    animator.SetBool("Attack", false);
-                    break;
-                case 1:
-                    animator.SetBool("Run", true);
-                    animator.SetBool("Attack", false);
-                    break;
-                case 2:
-                    animator.SetBool("Run", false);
-                    animator.SetBool("Attack", true);
-                    break;
-            }
-        }
-        else
-        {
-            animator.SetBool("Run", false);
-            animator.SetBool("Attack", false);
+            case 0: // Idle
+                animator.SetBool("Run", false);
+                animator.SetBool("Attack", false);
+                animator.SetBool("Walk", false);
+                animator.SetBool("Slow", false);
+                break;
+            case 1: // inRay
+                animator.SetBool("Run", true);
+                animator.SetBool("Attack", false);
+                animator.SetBool("Walk", false);
+                animator.SetBool("Slow", false);
+                break;
+            case 2: // Atk
+                animator.SetBool("Run", false);
+                animator.SetBool("Attack", true);
+                animator.SetBool("Walk", false);
+                animator.SetBool("Slow", false);
+                break;
+            case 3: // inSector
+                animator.SetBool("Run", false);
+                animator.SetBool("Attack", false);
+                animator.SetBool("Walk", true);
+                animator.SetBool("Slow", false);
+                break;
+            case 4: // inSoundSector
+                animator.SetBool("Run", false);
+                animator.SetBool("Attack", false);
+                animator.SetBool("Walk", false);
+                animator.SetBool("Slow", true);
+                break;
+            case 5: // Die
+                animator.SetBool("Fall_Back", false);
+                break;
         }
     }
 }

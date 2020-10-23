@@ -6,46 +6,52 @@ using UnityEngine.AI;
 public class ZombieNaviScript : MonoBehaviour
 {
     [SerializeField]
-    private GameObject player;
-    [SerializeField]
-    private GameObject rayPosition;
+    private GameObject destination;
+
     private NavMeshAgent agent;
-    private ZombieSectorScript zombieSectorScript;
-    private ZombieRayScript zombieRayScript;
+    private ZombieState zombieState;
+    private Animator animator;
+    private Rigidbody rig;
+
+ 
+
 
     private void Start()
     {
+        animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
-        zombieSectorScript = GetComponent<ZombieSectorScript>();
-        zombieRayScript = rayPosition.GetComponent<ZombieRayScript>();
+        zombieState = GetComponent<ZombieState>();
+        rig = GetComponent<Rigidbody>();
     }
 
     private void Update()
     {
-        perceivePlayer();
-        followPlayer();
+        agent.SetDestination(destination.transform.position);
+        setAgentSpeed();
     }
 
-    void perceivePlayer()
+    void setAgentSpeed()
     {
-        if(zombieSectorScript.isCollision)
+        switch (zombieState.zombieState)
         {
-            transform.LookAt(player.transform);
-            //agent.SetDestination(player.transform.position);
-        }
-        //else
-            //agent.SetDestination(gameObject.transform.position);
-    }
-
-    void followPlayer()
-    {
-        if(zombieRayScript.onSight)
-        {
-            agent.SetDestination(player.transform.position);
-        }
-        else
-        {
-            agent.SetDestination(gameObject.transform.position);
+            case 0: // Idle
+                agent.speed = 0f;
+                break;
+            case 1: // inRay
+                agent.speed = 5f;
+                break;
+            case 2: // Atk
+                agent.speed = 0f;
+                break;
+            case 3: // inSector
+                agent.speed = 1.3f;
+                break;
+            case 4: // inSoundSector
+                agent.speed = 0.5f;
+                break;
+            case 5: // Die
+                agent.speed = 0f;
+                break;
         }
     }
 }

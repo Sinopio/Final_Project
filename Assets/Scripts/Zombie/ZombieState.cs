@@ -25,8 +25,22 @@ public class ZombieState : MonoBehaviour
     private float distance;
     [SerializeField]
     private GameObject player;
+
+    [SerializeField]
+    private GameObject rayPosition;
+
+    private ZombieRayScript zombieRayScript;
+    private ZombieSectorScript zombieSectorScript;
+    private ZombieSoundSectorScript zombieSoundSectorScript;
+    [SerializeField]
+    private float p_zDis;
+
     private void Start()
     {
+        zombieRayScript = rayPosition.GetComponent<ZombieRayScript>();
+        zombieSectorScript = GetComponent<ZombieSectorScript>();
+        zombieSoundSectorScript = GetComponent<ZombieSoundSectorScript>();
+
         manager = mobManager.GetComponent<MobManagerScript>();
         stateHp = manager.deck[mobNumber].mobHp;
         stateDmg = manager.deck[mobNumber].mobDmg;
@@ -36,24 +50,34 @@ public class ZombieState : MonoBehaviour
 
     private void FixedUpdate()
     {
-        distance_cal();
+        setState();
     }
 
-    void distance_cal()
+
+    void setState()
     {
-        distance = Vector3.Distance(player.transform.position, gameObject.transform.position);
-        //Mathf.Abs(distance)
-        if(Mathf.Abs(distance) < 3f)
+        p_zDis = Vector3.Distance(player.transform.position, gameObject.transform.position);
+        //Mathf.Abs(p_zDis);
+        //idle
+        if (!zombieRayScript.inSight && !zombieSectorScript.inSector && !zombieSoundSectorScript.inSoundSector)
         {
-            zombieState = 2;
+            zombieState = 0;
         }
-        else if(Mathf.Abs(distance) >= 3f && Mathf.Abs(distance) < 10)
+        else if (zombieRayScript.inSight && p_zDis >= 2f)
         {
             zombieState = 1;
         }
-        else
+        else if (zombieRayScript.inSight && p_zDis < 2f)
         {
-            zombieState = 0;
+            zombieState = 2;
+        }
+        else if (!zombieRayScript.inSight && zombieSectorScript.inSector)
+        {
+            zombieState = 3;
+        }
+        else if (!zombieRayScript.inSight && !zombieSectorScript.inSector && zombieSoundSectorScript.inSoundSector)
+        {
+            zombieState = 4;
         }
     }
 }
