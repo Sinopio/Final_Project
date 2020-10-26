@@ -10,30 +10,39 @@ public class ZombieState : MonoBehaviour
     // 몹 매니저에서 불러올 정보의 번호
     [SerializeField]
     private int mobNumber;
-    private MobManagerScript manager;
+    [SerializeField]
+    private GameObject player;
+    [SerializeField]
+    private GameObject rayPosition;
 
     // 몬스터 프리팝에 붙어 작동할 스크립트
     public float stateHp;
     public float stateDmg;
     public float stateSpeed;
-
     // 몬스터의 상태를 애니메이션 스크립트에 넘겨줄 변수
     public int zombieState;
+    // 몬스터의 갯수를 확인할 변수
+    public static int zombieCount = 0;
 
-    // 플레이어와 몬스터 사이의 거리
-    [SerializeField]
     private float distance;
-    [SerializeField]
-    private GameObject player;
+    private float p_zDis;
 
-    [SerializeField]
-    private GameObject rayPosition;
-
+    private MobManagerScript manager;
     private ZombieRayScript zombieRayScript;
     private ZombieSectorScript zombieSectorScript;
     private ZombieSoundSectorScript zombieSoundSectorScript;
-    [SerializeField]
-    private float p_zDis;
+
+    private void OnEnable()
+    {
+        zombieCount++;
+        Debug.Log("생성 >> " + zombieCount);
+    }
+
+    private void OnDisable()
+    {
+        zombieCount--;
+        Debug.Log("소멸 >> " + zombieCount);
+    }
 
     private void Start()
     {
@@ -51,6 +60,7 @@ public class ZombieState : MonoBehaviour
     private void FixedUpdate()
     {
         setState();
+        setFalse();
     }
 
 
@@ -80,4 +90,13 @@ public class ZombieState : MonoBehaviour
             zombieState = 4;
         }
     }
+
+    void setFalse()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            ZombiePoolScript.ReturnzombieObject(this.gameObject);
+        }
+    }
+
 }

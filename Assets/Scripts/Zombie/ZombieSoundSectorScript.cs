@@ -8,6 +8,8 @@ public class ZombieSoundSectorScript : MonoBehaviour
     [SerializeField]
     private GameObject player;
     [SerializeField]
+    private GameObject destination;
+    [SerializeField]
     private float distance;
     private float p_zDis;
     public bool inSoundSector = false;
@@ -25,7 +27,6 @@ public class ZombieSoundSectorScript : MonoBehaviour
         Mathf.Abs(p_zDis);
         if (p_zDis <= distance)
         {
-            //transform.LookAt(new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z));
             inSoundSector = true;
         }
         else

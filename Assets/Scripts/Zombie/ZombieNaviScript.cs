@@ -13,9 +13,6 @@ public class ZombieNaviScript : MonoBehaviour
     private Animator animator;
     private Rigidbody rig;
 
- 
-
-
     private void Start()
     {
         animator = GetComponent<Animator>();

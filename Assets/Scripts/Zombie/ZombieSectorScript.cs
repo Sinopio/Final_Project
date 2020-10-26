@@ -7,7 +7,6 @@ public class ZombieSectorScript : MonoBehaviour
 {
     [SerializeField]
     private GameObject player;
-
     [SerializeField]
     private float angleRange;
     [SerializeField]
@@ -33,7 +32,6 @@ public class ZombieSectorScript : MonoBehaviour
         {
             if (Vector3.Dot(direction.normalized, transform.forward) > dotValue)
             {
-                //transform.LookAt(new Vector3(player.transform.position.x, -0.670f, player.transform.position.z));
                 inSector = true;
             }
 

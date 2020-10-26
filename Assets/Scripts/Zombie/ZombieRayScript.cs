@@ -33,7 +33,7 @@ public class ZombieRayScript : MonoBehaviour
             transform.LookAt(new Vector3(player.transform.position.x, player.transform.position.y+1, player.transform.position.z));
             if (Physics.Raycast(transform.position, transform.forward, out raycastHit, rayLength))
             {
-                Debug.Log(raycastHit.collider.name);
+                //Debug.Log(raycastHit.collider.name);
                 if(raycastHit.collider.tag == "Player")
                 {
                     inSight = true;

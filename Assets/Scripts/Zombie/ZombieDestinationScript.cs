@@ -12,15 +12,24 @@ public class ZombieDestinationScript : MonoBehaviour
 
     [SerializeField]
     private float searchTime;
+    private float delayTime;
+    private float randX = 0;
+    private float randZ = 0;
+    private Vector3 playerPosition;
+
+
 
     private void Start()
     {
+        searchTime = 2f;
+        delayTime = 2f;
         zombieState = zombie.GetComponent<ZombieState>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         searchTime += Time.deltaTime;
+        delayTime += Time.deltaTime;
         movePosition();
     }
 
@@ -29,30 +38,45 @@ public class ZombieDestinationScript : MonoBehaviour
         switch (zombieState.zombieState)
         {
             case 1: // inRay
-                followPlayer();
+                gameObject.transform.position = player.transform.position;
                 break;
             case 3: // inSector
-                followPlayer();
+                if(delayTime >= 2f)
+                {
+                    followPlayer();
+                    delayTime = 0f;
+                }
+                gameObject.transform.position = playerPosition;
                 break;
             case 4: // inSoundSector
-                if (searchTime >= 5f)
+                if (searchTime >= 2f)
                 {
-                    setPosition();
+                    setRandPosition();
                     searchTime = 0f;
                 }
+                gameObject.transform.position = new Vector3(player.transform.position.x + randX, player.transform.position.y, player.transform.position.z + randZ);
                 break;
         }
     }
 
-    void setPosition()
+    void setRandPosition()
     {
-        float randX = Random.Range(-1, 1);
-        float randZ = Random.Range(-1, 1);
-        gameObject.transform.position = new Vector3(player.transform.position.x + randX, 0f, player.transform.position.z + randZ);
+       randX = Random.Range(-5, 5);
+       randZ = Random.Range(-5, 5);
     }
 
     void followPlayer()
     {
-        gameObject.transform.position = player.transform.position;
+        //Debug.Log("setposition");
+        playerPosition = player.transform.position;
     }
+
+    IEnumerator setPositionDelay()
+    {
+        Debug.Log("time" + Time.time);
+        yield return new WaitForSeconds(2.0f);
+    }
+    /*
+    코루틴등의 방법을 통해 플레이어의 좌표를 1회 받아오고, 일정시간이 지나면 다시 받아오는 식으로 구현
+    */
 }
