@@ -15,15 +15,6 @@ public class ZombiePoolScript : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        Initalize(10);
-    }
-
-    private void Initalize(int initcount)
-    {
-        for(int i = 0; i < initcount; i++)
-        {
-            zombiePoolQueue.Enqueue(CreateNewZombieObject());
-        }
     }
 
     private GameObject CreateNewZombieObject()
@@ -34,9 +25,9 @@ public class ZombiePoolScript : MonoBehaviour
         return newObj;
     }
 
-    public static GameObject GetZombieObject()
+    public GameObject GetZombieObject()
     {
-        if(Instance.zombiePoolQueue.Count >0)
+        if(Instance.zombiePoolQueue.Count > 0)
         {
             var obj = Instance.zombiePoolQueue.Dequeue();
             obj.transform.SetParent(null);
@@ -53,7 +44,7 @@ public class ZombiePoolScript : MonoBehaviour
         }
     }
 
-    public static void ReturnzombieObject(GameObject Obj)
+    public void PutZombieObject(GameObject Obj)
     {
         Obj.SetActive(false);
         Obj.transform.SetParent(Instance.transform);

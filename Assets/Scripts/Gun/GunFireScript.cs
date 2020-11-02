@@ -25,6 +25,7 @@ public class GunFireScript : MonoBehaviour
     {
         if(canFire && Input.GetMouseButtonDown(0))
         {
+            BulletPoolScript.Instance.GetBullet();
             gunStateScript.gunAmmoState--;
         }
     }

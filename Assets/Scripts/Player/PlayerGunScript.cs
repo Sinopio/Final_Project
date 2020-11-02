@@ -11,6 +11,7 @@ public class PlayerGunScript : MonoBehaviour
     [SerializeField]
     private int dropgunNum;
     public int pickGunNum;
+    public float pickGunDmg;
 
     [SerializeField]
     private GameObject gun0;

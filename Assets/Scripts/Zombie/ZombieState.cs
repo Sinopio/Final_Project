@@ -15,6 +15,11 @@ public class ZombieState : MonoBehaviour
     [SerializeField]
     private GameObject rayPosition;
 
+    [SerializeField]
+    private GameObject soundRange;
+    [SerializeField]
+    private GameObject smellRange;
+
     // 몬스터 프리팝에 붙어 작동할 스크립트
     public float stateHp;
     public float stateDmg;
@@ -29,26 +34,36 @@ public class ZombieState : MonoBehaviour
 
     private MobManagerScript manager;
     private ZombieRayScript zombieRayScript;
-    private ZombieSectorScript zombieSectorScript;
-    private ZombieSoundSectorScript zombieSoundSectorScript;
+    private ZombieSoundRangeScript zombieSoundRange;
+    private ZombieSmellRangeScript zombieSmellRange;
+    /*private ZombieSectorScript zombieSectorScript;
+    private ZombieSoundSectorScript zombieSoundSectorScript;*/
 
     private void OnEnable()
     {
         zombieCount++;
         Debug.Log("생성 >> " + zombieCount);
+        zombieState = 0;
     }
 
     private void OnDisable()
     {
         zombieCount--;
         Debug.Log("소멸 >> " + zombieCount);
+        manager = mobManager.GetComponent<MobManagerScript>();
+        stateHp = manager.deck[mobNumber].mobHp;
+        stateDmg = manager.deck[mobNumber].mobDmg;
+        stateSpeed = manager.deck[mobNumber].mobSpeed;
+        zombieState = 0;
     }
 
     private void Start()
     {
         zombieRayScript = rayPosition.GetComponent<ZombieRayScript>();
-        zombieSectorScript = GetComponent<ZombieSectorScript>();
-        zombieSoundSectorScript = GetComponent<ZombieSoundSectorScript>();
+        /*zombieSectorScript = GetComponent<ZombieSectorScript>();
+         zombieSoundSectorScript = GetComponent<ZombieSoundSectorScript>();*/
+        zombieSoundRange = soundRange.GetComponent<ZombieSoundRangeScript>();
+        zombieSmellRange = smellRange.GetComponent<ZombieSmellRangeScript>();
 
         manager = mobManager.GetComponent<MobManagerScript>();
         stateHp = manager.deck[mobNumber].mobHp;
@@ -57,19 +72,22 @@ public class ZombieState : MonoBehaviour
         zombieState = 0;
     }
 
+    
+
     private void FixedUpdate()
     {
         setState();
-        setFalse();
     }
 
 
     void setState()
     {
         p_zDis = Vector3.Distance(player.transform.position, gameObject.transform.position);
-        //Mathf.Abs(p_zDis);
-        //idle
-        if (!zombieRayScript.inSight && !zombieSectorScript.inSector && !zombieSoundSectorScript.inSoundSector)
+        if (stateHp <= 0)
+        {
+            zombieState = 5;
+        }
+        else if (!zombieRayScript.inSight && !zombieSmellRange.inSmellRange && !zombieSoundRange.inSoundRange)
         {
             zombieState = 0;
         }
@@ -81,22 +99,13 @@ public class ZombieState : MonoBehaviour
         {
             zombieState = 2;
         }
-        else if (!zombieRayScript.inSight && zombieSectorScript.inSector)
+        else if (!zombieRayScript.inSight && zombieSmellRange.inSmellRange)
         {
             zombieState = 3;
         }
-        else if (!zombieRayScript.inSight && !zombieSectorScript.inSector && zombieSoundSectorScript.inSoundSector)
+        else if (!zombieRayScript.inSight && !zombieSmellRange.inSmellRange && zombieSoundRange.inSoundRange)
         {
             zombieState = 4;
         }
     }
-
-    void setFalse()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            ZombiePoolScript.ReturnzombieObject(this.gameObject);
-        }
-    }
-
 }

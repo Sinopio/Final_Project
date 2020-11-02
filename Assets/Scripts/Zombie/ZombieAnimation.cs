@@ -19,6 +19,7 @@ public class ZombieAnimation : MonoBehaviour
     private void Update()
     {
         UpdateZombieAni();
+        putZombiePool();
     }
 
     void UpdateZombieAni()
@@ -31,6 +32,7 @@ public class ZombieAnimation : MonoBehaviour
                 animator.SetBool("Attack", false);
                 animator.SetBool("Walk", false);
                 animator.SetBool("Slow", false);
+                animator.SetBool("Fall_Back", false);
                 break;
             case 1: // inRay
                 animator.SetBool("Run", true);
@@ -57,8 +59,17 @@ public class ZombieAnimation : MonoBehaviour
                 animator.SetBool("Slow", true);
                 break;
             case 5: // Die
-                animator.SetBool("Fall_Back", false);
+                animator.SetBool("Fall_Back", true);
                 break;
+        }
+    }
+
+    void putZombiePool()
+    {
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Z_FallingBack")
+            && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
+        {
+            ZombiePoolScript.Instance.PutZombieObject(gameObject);
         }
     }
 }

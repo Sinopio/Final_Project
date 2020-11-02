@@ -6,19 +6,21 @@ public class ZombieRayScript : MonoBehaviour
 {
     public bool inSight;
 
-    private ZombieSectorScript zombieSectorScript;
-   
+    //private ZombieSectorScript zombieSectorScript;
+    private ZombieSoundRangeScript zombieSoundRange;
+
     private RaycastHit raycastHit;
     [SerializeField]
     private float rayLength;
     [SerializeField]
-    private GameObject parent;
+    private GameObject soundRange;
     [SerializeField]
     private GameObject player;
 
     private void Start()
     {
-        zombieSectorScript = parent.GetComponent<ZombieSectorScript>();
+        //zombieSectorScript = parent.GetComponent<ZombieSectorScript>();
+        zombieSoundRange = soundRange.GetComponent < ZombieSoundRangeScript>();
     }
     private void Update()
     {
@@ -27,7 +29,7 @@ public class ZombieRayScript : MonoBehaviour
 
     void checkObstacle()
     {
-        if (zombieSectorScript.inSector)
+        if (zombieSoundRange.inSoundRange)
         {
             Debug.DrawRay(transform.position, transform.forward * rayLength, Color.red);
             transform.LookAt(new Vector3(player.transform.position.x, player.transform.position.y+1, player.transform.position.z));

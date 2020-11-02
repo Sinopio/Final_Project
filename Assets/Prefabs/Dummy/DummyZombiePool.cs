@@ -21,7 +21,7 @@ public class DummyZombiePool : MonoBehaviour
         {
             randX = Random.Range(-5, 5);
             randZ = Random.Range(-5, 5);
-            var ZombieObj = ZombiePoolScript.GetZombieObject();
+            var ZombieObj = ZombiePoolScript.Instance.GetZombieObject();
             ZombieObj.transform.position = new Vector3(player.transform.position.x + randX, player.transform.position.y, player.transform.position.z + randZ);
         }
     }
