@@ -65,6 +65,7 @@
     <Compile Include="Assets\Scripts\Gun\GunFireScript.cs" />
     <Compile Include="Assets\Scripts\UI\Billboard.cs" />
     <Compile Include="Assets\Scripts\Manager\GunInfo.cs" />
+    <Compile Include="Assets\Scripts\Zombie\ZombieSmellRangeScript.cs" />
     <Compile Include="Assets\Download_Assets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_New.cs" />
     <Compile Include="Assets\Download_Assets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_DeleteAfterDelay.cs" />
     <Compile Include="Assets\Download_Assets\JMO Assets\WarFX\Demo\Assets\CFX_AutoStopLoopedEffect.cs" />
@@ -73,6 +74,7 @@
     <Compile Include="Assets\Scripts\Gun\PickGunScript.cs" />
     <Compile Include="Assets\Scripts\Manager\MobInfo.cs" />
     <Compile Include="Assets\Scripts\Gun\GunStateScript.cs" />
+    <Compile Include="Assets\Scripts\UI\SetUIPositionScript.cs" />
     <Compile Include="Assets\Download_Assets\JMO Assets\WarFX\Demo\Assets\CFX_Demo_RandomDir.cs" />
     <Compile Include="Assets\Download_Assets\SMC Pack 1\Demo\DemoAssets\V_Text.cs" />
     <Compile Include="Assets\Download_Assets\JMO Assets\WarFX\Demo\Assets\CFX_Demo_RotateCamera.cs" />
@@ -83,6 +85,7 @@
     <Compile Include="Assets\Scripts\Bullet\GetGunInfoScript.cs" />
     <Compile Include="Assets\Download_Assets\JMO Assets\WarFX\Scripts\CFX_LightIntensityFade.cs" />
     <Compile Include="Assets\Download_Assets\SMC Pack 1\Demo\DemoAssets\V_SMC_Handler.cs" />
+    <Compile Include="Assets\Scripts\Zombie\ZombieSoundRangeScript.cs" />
     <Compile Include="Assets\Scripts\Manager\ZombiePoolScript.cs" />
     <Compile Include="Assets\Scripts\Zombie\ZombieAnimation.cs" />
     <Compile Include="Assets\Prefabs\Dummy\DummyZombiePool.cs" />
@@ -96,9 +99,22 @@
     <Compile Include="Assets\Download_Assets\JMO Assets\WarFX\Scripts\WFX_BulletHoleDecal.cs" />
     <Compile Include="Assets\Download_Assets\JMO Assets\WarFX\Spawn System\CFX_SpawnSystem.cs" />
     <Compile Include="Assets\Scripts\Zombie\ZombieState.cs" />
-    <Compile Include="Assets\Scripts\Zombie\ZombieSmellRangeScript.cs" />
-    <Compile Include="Assets\Scripts\Zombie\ZombieSoundRangeScript.cs" />
-    <Compile Include="Assets\Scripts\UI\SetUIPositionScript.cs" />
+    <Compile Include="Assets\Scripts\Gun\MuzzleFlashScript.cs" />
+    <Compile Include="Assets\Download_Assets\EffectExamples\Shared\Scripts\ParticleMenu.cs" />
+    <Compile Include="Assets\Download_Assets\EffectExamples\Shared\Scripts\ParticleCollision.cs" />
+    <Compile Include="Assets\Download_Assets\EffectExamples\Shared\Scripts\GunShoot.cs" />
+    <Compile Include="Assets\Download_Assets\EffectExamples\Shared\Scripts\DecalDestroyer.cs" />
+    <Compile Include="Assets\Download_Assets\EffectExamples\Shared\Scripts\GunAim.cs" />
+    <Compile Include="Assets\Download_Assets\EffectExamples\TutorialInfo\Scripts\Readme.cs" />
+    <Compile Include="Assets\Download_Assets\EffectExamples\Shared\Scripts\ExtinguishableFire.cs" />
+    <Compile Include="Assets\Download_Assets\EffectExamples\Shared\Scripts\ParticleExamples.cs" />
+    <Compile Include="Assets\Scripts\Zombie\ZombieAtkScript.cs" />
+    <Compile Include="Assets\Scripts\Zombie\ZombieDamageScript.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerState.cs" />
+    <Compile Include="Assets\Scripts\UI\PlayerHpbarScript.cs" />
+    <Compile Include="Assets\Scripts\Camera\CameraRoadScript.cs" />
+    <Compile Include="Assets\Scripts\UI\MedikitUIScript.cs" />
+    <Compile Include="Assets\Scripts\Item\PickMedikitScript.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Download_Assets\JMO Assets\WarFX\Shaders\WFX_S Multiply Soft.shader" />
@@ -115,6 +131,7 @@
      <None Include="Assets\Download_Assets\JMO Assets\WarFX\Shaders\WFX_S Particle AddSoft A8.shader" />
      <None Include="Assets\Download_Assets\JMO Assets\WarFX\!WarFX Readme.txt" />
      <None Include="Assets\Download_Assets\JMO Assets\WarFX\Shaders\WFX_S Alpha-Diffuse TintColor.shader" />
+     <None Include="Assets\Download_Assets\EffectExamples\Shared\Shaders\SurfaceShader_VC.shader" />
      <None Include="Assets\Download_Assets\JMO Assets\WarFX\Shaders\WFX_S AlphaBlend NoSoftParticles.shader" />
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.1.4f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>

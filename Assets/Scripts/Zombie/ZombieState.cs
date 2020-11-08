@@ -41,14 +41,12 @@ public class ZombieState : MonoBehaviour
 
     private void OnEnable()
     {
-        zombieCount++;
-        Debug.Log("생성 >> " + zombieCount);
         zombieState = 0;
     }
 
     private void OnDisable()
     {
-        zombieCount--;
+        zombieCount++;
         Debug.Log("소멸 >> " + zombieCount);
         manager = mobManager.GetComponent<MobManagerScript>();
         stateHp = manager.deck[mobNumber].mobHp;
@@ -72,13 +70,10 @@ public class ZombieState : MonoBehaviour
         zombieState = 0;
     }
 
-    
-
     private void FixedUpdate()
     {
         setState();
     }
-
 
     void setState()
     {

@@ -7,13 +7,18 @@ public class GunFireScript : MonoBehaviour
     GunStateScript gunStateScript;
     private bool canFire;
     private bool canReload;
+    [SerializeField]
+    private GameObject muzzleFlash;
+    ParticleSystem particle;
 
     private void Start()
     {
+        particle = muzzleFlash.GetComponent<ParticleSystem>();
         gunStateScript = GetComponent<GunStateScript>();
         canFire = true;
         canReload = true;
     }
+
     private void Update()
     {
         fireGun();
@@ -25,7 +30,8 @@ public class GunFireScript : MonoBehaviour
     {
         if(canFire && Input.GetMouseButtonDown(0))
         {
-            BulletPoolScript.Instance.GetBullet();
+            particle.Play();
+            BulletPoolScript.Instance.GetBullet();            
             gunStateScript.gunAmmoState--;
         }
     }

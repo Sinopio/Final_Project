@@ -32,7 +32,7 @@ public class ZombieRayScript : MonoBehaviour
         if (zombieSoundRange.inSoundRange)
         {
             Debug.DrawRay(transform.position, transform.forward * rayLength, Color.red);
-            transform.LookAt(new Vector3(player.transform.position.x, player.transform.position.y+1, player.transform.position.z));
+            transform.LookAt(new Vector3(player.transform.position.x, player.transform.position.y + 0.5f, player.transform.position.z));
             if (Physics.Raycast(transform.position, transform.forward, out raycastHit, rayLength))
             {
                 //Debug.Log(raycastHit.collider.name);

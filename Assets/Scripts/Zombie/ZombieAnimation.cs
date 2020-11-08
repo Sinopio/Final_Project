@@ -20,6 +20,7 @@ public class ZombieAnimation : MonoBehaviour
     {
         UpdateZombieAni();
         putZombiePool();
+        setAtkAniTime();
     }
 
     void UpdateZombieAni()
@@ -70,6 +71,15 @@ public class ZombieAnimation : MonoBehaviour
             && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
         {
             ZombiePoolScript.Instance.PutZombieObject(gameObject);
+        }
+    }
+
+    void setAtkAniTime()
+    {
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Z_Attack")
+            && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
+        {
+            animator.Play("Z_Attack", -1,0f);
         }
     }
 }
