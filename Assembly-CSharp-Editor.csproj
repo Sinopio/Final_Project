@@ -56,8 +56,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Download_Assets\JMO Assets\Cartoon FX Easy Editor\Editor\CFXEasyEditor.cs" />
-    <Compile Include="Assets\Download_Assets\JMO Assets\WarFX\Editor\CFX_SpawnSystemEditor.cs" />
     <Compile Include="Assets\Download_Assets\EffectExamples\TutorialInfo\Scripts\Editor\ReadmeEditor.cs" />
+    <Compile Include="Assets\Download_Assets\JMO Assets\WarFX\Editor\CFX_SpawnSystemEditor.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Download_Assets\EffectExamples\Editor\PackageManagerAssembly\PackageManagerAssembly.dll" />

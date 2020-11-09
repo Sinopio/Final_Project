@@ -43,6 +43,7 @@ public class PlayerState : MonoBehaviour
             {
                 Hp = 80;
                 playerMove.moveSpeed = 7.0f;
+                medikitNum--;
                 recoveryTime = 0;
             }
         }
