@@ -50,7 +50,7 @@ public class PlayerGunScript : MonoBehaviour
 
     void pickupGun()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             if(pickAvailable)
             {
@@ -63,6 +63,7 @@ public class PlayerGunScript : MonoBehaviour
                         pickGunNum = 1;
                         break;
                 }
+                PlayerState.Instance.invenNum = 1;
             }
         }
     }

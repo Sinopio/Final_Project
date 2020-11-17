@@ -56,6 +56,9 @@ public class ZombieDestinationScript : MonoBehaviour
                 }
                 gameObject.transform.position = new Vector3(player.transform.position.x + randX, player.transform.position.y, player.transform.position.z + randZ);
                 break;
+            case 6:
+                gameObject.transform.position = GeneratorScript.Instance.objTrasnform.position;
+                break;
         }
     }
 

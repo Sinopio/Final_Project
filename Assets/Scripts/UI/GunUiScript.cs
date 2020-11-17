@@ -22,7 +22,6 @@ public class GunUiScript : MonoBehaviour
     private void Start()
     {
         playerGunScript = player.GetComponent<PlayerGunScript>();
-        ammoText.text = "";
     }
 
     private void Update()
@@ -36,13 +35,29 @@ public class GunUiScript : MonoBehaviour
         invenGunNum = playerGunScript.pickGunNum;
         switch (invenGunNum)
         {
+            case -1:
+                gunType[0].SetActive(false);
+                gunType[1].SetActive(false);
+                gunType[2].SetActive(false);
+                gunType[3].SetActive(false);
+                gunType[4].SetActive(true);
+                gunType[5].SetActive(true);
+                break;
             case 0:
                 gunType[0].SetActive(true);
-                gunType[1].SetActive(false);
+                gunType[1].SetActive(true);
+                gunType[2].SetActive(false);
+                gunType[3].SetActive(false);
+                gunType[4].SetActive(false);
+                gunType[5].SetActive(false);
                 break;
             case 1:
                 gunType[0].SetActive(false);
-                gunType[1].SetActive(true);
+                gunType[1].SetActive(false);
+                gunType[2].SetActive(true);
+                gunType[3].SetActive(true);
+                gunType[4].SetActive(false);
+                gunType[5].SetActive(false);
                 break;
         }
     }

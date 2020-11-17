@@ -9,9 +9,11 @@ public class PlayerState : MonoBehaviour
 
     public float Hp;
     public float MaxHp;
-
     public int medikitNum;
-    [SerializeField]
+    public int grenadeNum;
+    public int invenNum;
+
+
     private float recoveryTime = 0;
 
     private void Awake()
@@ -23,16 +25,18 @@ public class PlayerState : MonoBehaviour
     {
         playerMove = gameObject.GetComponent<PlayerMove>();
         medikitNum = 0;
+        invenNum = 0;
     }
 
     private void Update()
     {
         recoveryHp();
+        setInven();
     }
 
     void recoveryHp()
     {
-        if(Hp < 80 && Input.GetKey(KeyCode.Alpha4))
+        if(Hp < 80 && Input.GetKey(KeyCode.E) && invenNum == 4)
         {
             recoveryTime += Time.deltaTime;
             if(recoveryTime < 3.0f)
@@ -46,6 +50,26 @@ public class PlayerState : MonoBehaviour
                 medikitNum--;
                 recoveryTime = 0;
             }
+        }
+    }
+
+    void setInven()
+    {
+        if(Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            invenNum = 1;
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            invenNum = 2;
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha3) && grenadeNum > 0)
+        {
+            invenNum = 3;
+        }
+        else if (Input.GetKeyDown(KeyCode.Alpha4) && medikitNum > 0)
+        {
+            invenNum = 4;
         }
     }
 }

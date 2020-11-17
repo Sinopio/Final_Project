@@ -29,7 +29,6 @@ public class ZombieState : MonoBehaviour
     // 몬스터의 갯수를 확인할 변수
     public static int zombieCount = 0;
 
-    private float distance;
     private float p_zDis;
 
     private MobManagerScript manager;
@@ -58,8 +57,6 @@ public class ZombieState : MonoBehaviour
     private void Start()
     {
         zombieRayScript = rayPosition.GetComponent<ZombieRayScript>();
-        /*zombieSectorScript = GetComponent<ZombieSectorScript>();
-         zombieSoundSectorScript = GetComponent<ZombieSoundSectorScript>();*/
         zombieSoundRange = soundRange.GetComponent<ZombieSoundRangeScript>();
         zombieSmellRange = smellRange.GetComponent<ZombieSmellRangeScript>();
 
@@ -81,6 +78,10 @@ public class ZombieState : MonoBehaviour
         if (stateHp <= 0)
         {
             zombieState = 5;
+        }
+        else if (!zombieSmellRange.inSmellRange && GeneratorScript.Instance.alert)
+        {
+            zombieState = 6;
         }
         else if (!zombieRayScript.inSight && !zombieSmellRange.inSmellRange && !zombieSoundRange.inSoundRange)
         {
