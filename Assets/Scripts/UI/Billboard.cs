@@ -11,6 +11,10 @@ public class Billboard : MonoBehaviour
     private GameObject E_keyUI;
     [SerializeField]
     private float Distance;
+    [SerializeField]
+    private GameObject gripIcon;
+
+
     private void Start()
     {
         Cam = Camera.main.transform;
@@ -26,6 +30,18 @@ public class Billboard : MonoBehaviour
         if(other.tag == "Player")
         {
             E_keyUI.SetActive(true);
+            gripIcon.SetActive(true);
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                gripIcon.SetActive(false);
+            }
         }
     }
 
@@ -34,6 +50,7 @@ public class Billboard : MonoBehaviour
         if (other.tag == "Player")
         {
             E_keyUI.SetActive(false);
+            gripIcon.SetActive(false);
         }
     }
 }

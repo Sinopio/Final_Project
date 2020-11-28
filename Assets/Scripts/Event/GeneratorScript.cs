@@ -25,6 +25,10 @@ public class GeneratorScript : MonoBehaviour
     private GameObject itemBarUi;
     [SerializeField]
     private Image generatorBar;
+    [SerializeField]
+    private GameObject fixIcon;
+    [SerializeField]
+    private GameObject crosshair;
 
     private void Awake()
     {
@@ -55,12 +59,22 @@ public class GeneratorScript : MonoBehaviour
                 alert = true;
                 generatorRunTime = 0;
             }
+            crosshair.SetActive(false);
+            fixIcon.SetActive(true);
         }
 
         if (!alert && Input.GetKeyUp(KeyCode.E))
         {
             itemBarUi.SetActive(false);
             generatorRunTime = 0;
+            crosshair.SetActive(true);
+            fixIcon.SetActive(false);
+        }
+
+        if(alert)
+        {
+            crosshair.SetActive(true);
+            fixIcon.SetActive(false);
         }
     }
 
@@ -93,5 +107,7 @@ public class GeneratorScript : MonoBehaviour
             inGeneratorArea = false;
             fixGeneratorUI.SetActive(false);
         }
+        crosshair.SetActive(true);
+        fixIcon.SetActive(false);
     }
 }

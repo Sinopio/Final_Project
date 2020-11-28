@@ -32,6 +32,11 @@ public class BulletScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        BulletPoolScript.Instance.PutBullet(gameObject);
+        if(other.tag == "Zombie")
+        {
+            BloodEffectPoolScript.Instance.setPosition(gameObject.transform.position);
+            BloodEffectPoolScript.Instance.GetEffect();
+            BulletPoolScript.Instance.PutBullet(gameObject);
+        }
     }
 }

@@ -8,6 +8,7 @@ TagManager:
   - Gun
   - MapObject
   - Bullet
+  - Grenade
   layers:
   - Default
   - TransparentFX

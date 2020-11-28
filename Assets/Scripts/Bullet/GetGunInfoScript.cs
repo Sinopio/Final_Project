@@ -17,7 +17,7 @@ public class GetGunInfoScript : MonoBehaviour
     private void Start()
     {
         playerGunScript = player.GetComponent<PlayerGunScript>();
-        zombieState = gameObject.GetComponent<ZombieState>();
+        zombieState = gameObject.GetComponentInParent<ZombieState>();
         gunManagerScript = gunManager.GetComponent<GunManagerScript>();
     }
 

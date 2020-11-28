@@ -14,6 +14,9 @@ public class GunStateScript : MonoBehaviour
     public int gunFullAmmoState;
     public int gunAmmoNum;
 
+    [SerializeField]
+    private GameObject gripIcon;
+
     private void OnEnable()
     {
         manager = gunManager.GetComponent<GunManagerScript>();
@@ -21,5 +24,18 @@ public class GunStateScript : MonoBehaviour
         gunAmmoState = manager.deck[gunNumber].gunAmmo;
         gunFullAmmoState = manager.deck[gunNumber].gunFullAmmo;
         gunAmmoNum = manager.deck[gunNumber].ammoNum;
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                PlayerState.Instance.medikitNum++;
+                gripIcon.SetActive(false);
+                gameObject.SetActive(false);
+            }
+        }
     }
 }
