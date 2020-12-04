@@ -12,6 +12,8 @@ public class ThrowBombScript : MonoBehaviour
     [SerializeField]
     private GameObject target;
     [SerializeField]
+    private GameObject gPosition;
+    [SerializeField]
     private float angle;
     private float gravity = 9.8f;
     [SerializeField]
@@ -47,6 +49,7 @@ public class ThrowBombScript : MonoBehaviour
     {
         throwBomb();
         setEffect();
+        setThrowPosition();
     }
 
     void throwBomb()
@@ -67,6 +70,7 @@ public class ThrowBombScript : MonoBehaviour
             flightDuration = targetDistance / Vx;
 
             Obj.rotation = Quaternion.LookRotation(target.transform.position - Obj.position);
+            target.transform.position = gPosition.transform.position;
         }
 
         if (elapse_time <= flightDuration && isthrow)
@@ -75,7 +79,6 @@ public class ThrowBombScript : MonoBehaviour
 
             elapse_time += Time.deltaTime;
         }
-
     }
 
     void setEffect()
@@ -89,5 +92,11 @@ public class ThrowBombScript : MonoBehaviour
         }
     }
 
-
+    void setThrowPosition()
+    {
+        if (PlayerState.Instance.invenNum == 3 && Input.GetMouseButton(0))
+        {
+            target.transform.Translate(Vector3.forward * Time.deltaTime*10);
+        }
+    }
 }

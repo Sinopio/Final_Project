@@ -83,6 +83,7 @@
     <Compile Include="Assets\Download_Assets\EffectExamples\Shared\Scripts\GunShoot.cs" />
     <Compile Include="Assets\Download_Assets\EffectExamples\Shared\Scripts\DecalDestroyer.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerGunScript.cs" />
+    <Compile Include="Assets\Scripts\Item\BombDmgScripts.cs" />
     <Compile Include="Assets\Scripts\Gun\PickGunScript.cs" />
     <Compile Include="Assets\Scripts\Manager\MobInfo.cs" />
     <Compile Include="Assets\Scripts\Gun\GunStateScript.cs" />
@@ -94,6 +95,7 @@
     <Compile Include="Assets\Download_Assets\JMO Assets\WarFX\Demo\Assets\CFX_Demo_RandomDir.cs" />
     <Compile Include="Assets\Download_Assets\SMC Pack 1\Demo\DemoAssets\V_Text.cs" />
     <Compile Include="Assets\Download_Assets\JMO Assets\WarFX\Demo\Assets\CFX_Demo_RotateCamera.cs" />
+    <Compile Include="Assets\Scripts\Effect\PutBloodEffectScript.cs" />
     <Compile Include="Assets\Download_Assets\JMO Assets\WarFX\Scripts\CFX_AutoDestructShuriken.cs" />
     <Compile Include="Assets\Scripts\Manager\MobManagerScript.cs" />
     <Compile Include="Assets\Download_Assets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_RandomDir.cs" />
@@ -101,6 +103,7 @@
     <Compile Include="Assets\Scripts\Bullet\GetGunInfoScript.cs" />
     <Compile Include="Assets\Download_Assets\JMO Assets\WarFX\Scripts\CFX_LightIntensityFade.cs" />
     <Compile Include="Assets\Scripts\UI\ZombieNumScript.cs" />
+    <Compile Include="Assets\Scripts\Item\BombEffectScript.cs" />
     <Compile Include="Assets\Download_Assets\SMC Pack 1\Demo\DemoAssets\V_SMC_Handler.cs" />
     <Compile Include="Assets\Scripts\Zombie\ZombieSoundRangeScript.cs" />
     <Compile Include="Assets\Scripts\Manager\ZombiePoolScript.cs" />
@@ -124,9 +127,8 @@
     <Compile Include="Assets\Scripts\Zombie\ZombieDamageScript.cs" />
     <Compile Include="Assets\Download_Assets\JMO Assets\WarFX\Spawn System\CFX_SpawnSystem.cs" />
     <Compile Include="Assets\Scripts\Zombie\ZombieState.cs" />
-    <Compile Include="Assets\Scripts\Item\BombEffectScript.cs" />
-    <Compile Include="Assets\Scripts\Item\BombDmgScripts.cs" />
-    <Compile Include="Assets\Scripts\Effect\PutBloodEffectScript.cs" />
+    <Compile Include="Assets\Scripts\UI\WorldToScreenScript.cs" />
+    <Compile Include="Assets\Scripts\UI\RaderScript.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Download_Assets\JMO Assets\WarFX\Shaders\WFX_S Multiply Soft.shader" />
