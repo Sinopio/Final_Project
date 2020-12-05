@@ -54,9 +54,11 @@ public class ThrowBombScript : MonoBehaviour
 
     void throwBomb()
     {
-        if (PlayerState.Instance.invenNum == 3 && Input.GetMouseButtonUp(0))
+        if (PlayerState.Instance.invenNum == 3 && Input.GetMouseButtonUp(0) && PlayerState.Instance.grenadeNum > 0)
         {
             isthrow = true;
+
+            PlayerState.Instance.grenadeNum--;
 
             Obj.position = myTransform.position + new Vector3(0, 0.0f, 0);
 
