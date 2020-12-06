@@ -18,6 +18,11 @@ public class ParabolaScript : MonoBehaviour
     [SerializeField]
     private float Ypoint;
 
+    private void Start()
+    {
+        lineRenderer.SetColors(Color.white, Color.white);
+        lineRenderer.SetWidth(0.01f, 0.1f);
+    }
     private void Update()
     {
         drawParabola();

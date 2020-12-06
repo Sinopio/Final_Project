@@ -109,6 +109,7 @@
     <Compile Include="Assets\Scripts\Zombie\ZombieSoundRangeScript.cs" />
     <Compile Include="Assets\Scripts\Manager\ZombiePoolScript.cs" />
     <Compile Include="Assets\Scripts\Zombie\ZombieAnimation.cs" />
+    <Compile Include="Assets\Scripts\UI\GrenadeScript.cs" />
     <Compile Include="Assets\Prefabs\Dummy\DummyZombiePool.cs" />
     <Compile Include="Assets\Scripts\Zombie\ZombieDestinationScript.cs" />
     <Compile Include="Assets\Scripts\Zombie\ZombieSectorScript.cs" />
@@ -119,18 +120,18 @@
     <Compile Include="Assets\Download_Assets\JMO Assets\WarFX\Scripts\WFX_LightFlicker.cs" />
     <Compile Include="Assets\Download_Assets\EffectExamples\Shared\Scripts\ExtinguishableFire.cs" />
     <Compile Include="Assets\Scripts\Manager\GunManagerScript.cs" />
+    <Compile Include="Assets\Scripts\UI\SafeHouseRadarScript.cs" />
     <Compile Include="Assets\Scripts\Zombie\ZombieRayScript.cs" />
     <Compile Include="Assets\Download_Assets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_Wall.cs" />
     <Compile Include="Assets\Scripts\Item\PickMedikitScript.cs" />
     <Compile Include="Assets\Download_Assets\JMO Assets\WarFX\Scripts\WFX_BulletHoleDecal.cs" />
     <Compile Include="Assets\Download_Assets\EffectExamples\Shared\Scripts\ParticleExamples.cs" />
     <Compile Include="Assets\Scripts\UI\TutorialSceneGoalScript.cs" />
+    <Compile Include="Assets\Scripts\ParabolaScript.cs" />
     <Compile Include="Assets\Scripts\Zombie\ZombieDamageScript.cs" />
     <Compile Include="Assets\Download_Assets\JMO Assets\WarFX\Spawn System\CFX_SpawnSystem.cs" />
     <Compile Include="Assets\Scripts\Zombie\ZombieState.cs" />
-    <Compile Include="Assets\Scripts\UI\SafeHouseRadarScript.cs" />
-    <Compile Include="Assets\Scripts\UI\GrenadeScript.cs" />
-    <Compile Include="Assets\Scripts\ParabolaScript.cs" />
+    <Compile Include="Assets\Scripts\ObjExplosionScript.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Download_Assets\JMO Assets\WarFX\Shaders\WFX_S Multiply Soft.shader" />

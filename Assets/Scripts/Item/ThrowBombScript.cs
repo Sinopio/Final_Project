@@ -18,6 +18,10 @@ public class ThrowBombScript : MonoBehaviour
     private float gravity = 9.8f;
     [SerializeField]
     private Transform Obj;
+    [SerializeField]
+    private GameObject parabola;
+    [SerializeField]
+    private GameObject targetSphere;
 
     private Transform myTransform;
     private float elapse_time;
@@ -45,11 +49,12 @@ public class ThrowBombScript : MonoBehaviour
         setBombScript = player.GetComponent<SetBombScript>();
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         throwBomb();
         setEffect();
         setThrowPosition();
+        drawParabola();
     }
 
     void throwBomb()
@@ -99,6 +104,20 @@ public class ThrowBombScript : MonoBehaviour
         if (PlayerState.Instance.invenNum == 3 && Input.GetMouseButton(0))
         {
             target.transform.Translate(Vector3.forward * Time.deltaTime*10);
+        }
+    }
+
+    void drawParabola()
+    {
+        if (PlayerState.Instance.invenNum == 3 && Input.GetMouseButton(0) && PlayerState.Instance.grenadeNum > 0)
+        {
+            parabola.SetActive(true);
+            targetSphere.SetActive(true);
+        }
+        else if(PlayerState.Instance.invenNum != 3 || !Input.GetMouseButton(0) || PlayerState.Instance.grenadeNum <= 0)
+        {
+            parabola.SetActive(false);
+            targetSphere.SetActive(false);
         }
     }
 }
