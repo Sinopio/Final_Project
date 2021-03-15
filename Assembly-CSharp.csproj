@@ -98,6 +98,7 @@
     <Compile Include="Assets\Download_Assets\SMC Pack 1\Demo\DemoAssets\V_Text.cs" />
     <Compile Include="Assets\Download_Assets\JMO Assets\WarFX\Demo\Assets\CFX_Demo_RotateCamera.cs" />
     <Compile Include="Assets\Scripts\Effect\PutBloodEffectScript.cs" />
+    <Compile Include="Assets\Scripts\Player\new\SwapRifle.cs" />
     <Compile Include="Assets\Download_Assets\JMO Assets\WarFX\Scripts\CFX_AutoDestructShuriken.cs" />
     <Compile Include="Assets\Scripts\Manager\MobManagerScript.cs" />
     <Compile Include="Assets\Download_Assets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_RandomDir.cs" />
@@ -122,6 +123,7 @@
     <Compile Include="Assets\Download_Assets\EffectExamples\Shared\Scripts\ExtinguishableFire.cs" />
     <Compile Include="Assets\Scripts\Manager\GunManagerScript.cs" />
     <Compile Include="Assets\Scripts\UI\SafeHouseRadarScript.cs" />
+    <Compile Include="Assets\Scripts\Player\new\ChangeGun.cs" />
     <Compile Include="Assets\Scripts\Zombie\ZombieRayScript.cs" />
     <Compile Include="Assets\Download_Assets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_Wall.cs" />
     <Compile Include="Assets\Scripts\Item\PickMedikitScript.cs" />
