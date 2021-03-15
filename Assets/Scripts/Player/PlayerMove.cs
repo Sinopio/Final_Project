@@ -14,10 +14,6 @@ public class PlayerMove : MonoBehaviour
 
     [SerializeField]
     private Camera myCamera;
-    [SerializeField]
-    private GameObject bulletPosition;
-    [SerializeField]
-    private GameObject gun;
     private float camerRotation;
     private Rigidbody rig;
 
@@ -61,7 +57,7 @@ public class PlayerMove : MonoBehaviour
         camerRotation = Mathf.Clamp(camerRotation, -cameraRotationLimit, cameraRotationLimit);
 
         myCamera.transform.localEulerAngles = new Vector3(camerRotation, 0f, 0f);
-        bulletPosition.transform.localEulerAngles = new Vector3(camerRotation, 0f, 0f);
+        //bulletPosition.transform.localEulerAngles = new Vector3(camerRotation, 0f, 0f);
         //gun.transform.localEulerAngles = new Vector3(camerRotation, 0f, 0f);
     }
 }
