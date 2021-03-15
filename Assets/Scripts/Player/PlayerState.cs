@@ -63,17 +63,13 @@ public class PlayerState : MonoBehaviour
         {
             invenNum = 2;
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha3))
+        else if (Input.GetKeyDown(KeyCode.Alpha3) && grenadeNum > 0)
         {
             invenNum = 3;
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha4) && grenadeNum > 0)
+        else if (Input.GetKeyDown(KeyCode.Alpha4) && medikitNum > 0)
         {
             invenNum = 4;
-        }
-        else if (Input.GetKeyDown(KeyCode.Alpha5) && medikitNum > 0)
-        {
-            invenNum = 5;
         }
     }
 }
