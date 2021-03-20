@@ -25,7 +25,7 @@ public class PlayerState : MonoBehaviour
     {
         playerMove = gameObject.GetComponent<PlayerMove>();
         medikitNum = 0;
-        invenNum = 0;
+        invenNum = 3;
     }
 
     private void Update()
