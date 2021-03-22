@@ -67,7 +67,7 @@ public class ZombieState : MonoBehaviour
         zombieState = 0;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
         setState();
     }
@@ -78,10 +78,6 @@ public class ZombieState : MonoBehaviour
         if (stateHp <= 0)
         {
             zombieState = 5;
-        }
-        else if (!zombieSmellRange.inSmellRange && GeneratorScript.Instance.alert)
-        {
-            zombieState = 6;
         }
         else if (!zombieRayScript.inSight && !zombieSmellRange.inSmellRange && !zombieSoundRange.inSoundRange)
         {

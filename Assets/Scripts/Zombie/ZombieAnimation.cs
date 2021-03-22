@@ -48,20 +48,10 @@ public class ZombieAnimation : MonoBehaviour
                 animator.SetBool("Slow", false);
                 break;
             case 3: // inSector
-                if(GeneratorScript.Instance.alert)
-                {
-                    animator.SetBool("Run", true);
-                    animator.SetBool("Attack", false);
-                    animator.SetBool("Walk", false);
-                    animator.SetBool("Slow", false);
-                }
-                else
-                {
-                    animator.SetBool("Run", false);
-                    animator.SetBool("Attack", false);
-                    animator.SetBool("Walk", true);
-                    animator.SetBool("Slow", false);
-                }
+                animator.SetBool("Run", false);
+                animator.SetBool("Attack", false);
+                animator.SetBool("Walk", true);
+                animator.SetBool("Slow", false);
                 break;
             case 4: // inSoundSector
                 animator.SetBool("Run", false);
@@ -95,7 +85,7 @@ public class ZombieAnimation : MonoBehaviour
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Z_Attack")
             && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
         {
-            animator.Play("Z_Attack", -1,0f);
+            animator.Play("Z_Attack", -1, 0f);
         }
     }
 }

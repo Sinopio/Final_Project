@@ -40,13 +40,8 @@ public class ZombieNaviScript : MonoBehaviour
             case 2: // Atk
                 agent.speed = 0f;
                 break;
-            case 3: // inSector
-                if(GeneratorScript.Instance.alert)
-                {
-                    agent.speed = 5f;
-                }
-                else
-                    agent.speed = 1.3f;
+            case 3: // 
+                agent.speed = 1.3f;
                 break;
             case 4: // inSoundSector
                 agent.speed = 0.5f;

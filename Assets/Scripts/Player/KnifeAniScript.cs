@@ -5,15 +5,20 @@ using UnityEngine;
 public class KnifeAniScript : MonoBehaviour
 {
     private Animator animator;
+    [SerializeField]
+    private GameObject atkRange;
+
 
     private void Start()
     {
+        atkRange.SetActive(false);
         animator = GetComponent<Animator>();
     }
 
     void Update()
     {
         meleeAni();
+        callAtkRange();
     }
 
     void meleeAni()
@@ -42,6 +47,20 @@ public class KnifeAniScript : MonoBehaviour
             && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
         {
             animator.SetBool("Atk", false);
+        }
+    }
+
+    void callAtkRange()
+    {
+        if (PlayerState.Instance.invenNum == 3 && Input.GetMouseButtonDown(0))
+        {
+            atkRange.SetActive(true);
+        }
+
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("KnifeAtk")
+            && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
+        {
+            atkRange.SetActive(false);
         }
     }
 }
