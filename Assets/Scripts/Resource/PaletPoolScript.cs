@@ -26,23 +26,20 @@ public class PaletPoolScript : MonoBehaviour
 
     public GameObject GetPaletObject()
     {
-        if (Instance.paletPoolQueue.Count > 0)
+        dynamic obj = null;
+
+        if (Instance.paletPoolQueue.Count == 0)
         {
-            var obj = Instance.paletPoolQueue.Dequeue();
-            obj.transform.SetParent(null);
-            obj.SetActive(true);
-            obj.transform.position = position;
-            return obj;
+            obj = Instance.CreateNewPaletObject();
+            Instance.paletPoolQueue.Enqueue(obj);
         }
 
-        else
-        {
-            var newObj = Instance.CreateNewPaletObject();
-            newObj.SetActive(true);
-            newObj.transform.SetParent(null);
-            newObj.transform.position = position;
-            return newObj;
-        }
+        obj = Instance.paletPoolQueue.Dequeue();
+        obj.SetActive(true);
+        obj.transform.SetParent(null);
+        obj.transform.position = position;
+
+        return obj;
     }
 
     public void PutPaletObject(GameObject Obj)

@@ -26,21 +26,19 @@ public class BulletPoolScript : MonoBehaviour
 
     public GameObject GetBullet()
     {
-        if (Instance.bulletPoolQueue.Count > 0)
+        dynamic obj = null;
+
+        if (Instance.bulletPoolQueue.Count == 0)
         {
-            var obj = Instance.bulletPoolQueue.Dequeue();
-            obj.transform.SetParent(null);
-            obj.SetActive(true);
-            return obj;
+            obj = Instance.CreateNewBullet();
+            Instance.bulletPoolQueue.Enqueue(obj);
         }
 
-        else
-        {
-            var newObj = Instance.CreateNewBullet();
-            newObj.SetActive(true);
-            newObj.transform.SetParent(null);
-            return newObj;
-        }
+        obj = Instance.bulletPoolQueue.Dequeue();
+
+        obj.SetActive(true);
+        obj.transform.SetParent(null);
+        return obj;
     }
 
     public void PutBullet(GameObject Obj)
