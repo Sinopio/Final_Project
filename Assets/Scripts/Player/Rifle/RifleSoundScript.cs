@@ -6,6 +6,8 @@ public class RifleSoundScript : MonoBehaviour
 {
     private Animator animator;
     private AudioSource audio;
+    [SerializeField]
+    private float delayTime;
 
     [SerializeField]
     private AudioClip aimCenter;
@@ -13,6 +15,8 @@ public class RifleSoundScript : MonoBehaviour
     private AudioClip shot;
     [SerializeField]
     private AudioClip reload;
+    [SerializeField]
+    private float shotDelay;
 
 
     // Start is called before the first frame update
@@ -24,9 +28,15 @@ public class RifleSoundScript : MonoBehaviour
         animator.SetBool("Move", true);
     }
 
+    void OnDisable()
+    {
+        audio.clip = null;
+    }
+
     private void Update()
     {
         RifleAni();
+        delayTime += Time.deltaTime;
     }
 
     void RifleAni()
@@ -43,19 +53,15 @@ public class RifleSoundScript : MonoBehaviour
             animator.SetBool("Move", false);
         }
 
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && checkDelay())
         {
             animator.SetBool("Shot", true);
-        }
-
-        if (Input.GetMouseButtonDown(0))
-        {
             audio.clip = shot;
             audio.Play();
+            animator.Play("RifleShot", -1, 0f);
         }
 
-        if (animator.GetCurrentAnimatorStateInfo(0).IsName("RifleShot")
-            && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.8f)
+        if (Input.GetMouseButtonUp(0))
         {
             animator.SetBool("Shot", false);
         }
@@ -71,6 +77,19 @@ public class RifleSoundScript : MonoBehaviour
             && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.9f)
         {
             animator.SetBool("Reload", false);
+        }
+    }
+
+    bool checkDelay()
+    {
+        if (delayTime <= shotDelay)
+        {
+            return false;
+        }
+        else
+        {
+            delayTime = 0;
+            return true;
         }
     }
 }

@@ -34,8 +34,8 @@ public class BulletScript : MonoBehaviour
     {
         if(other.tag == "Zombie")
         {
-            BloodEffectPoolScript.Instance.setPosition(gameObject.transform.position);
-            BloodEffectPoolScript.Instance.GetEffect();
+            //BloodEffectPoolScript.Instance.setPosition(gameObject.transform.position);
+            //BloodEffectPoolScript.Instance.GetEffect();
             BulletPoolScript.Instance.PutBullet(gameObject);
         }
     }

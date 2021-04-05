@@ -12,6 +12,7 @@ public class PlayerState : MonoBehaviour
     public int medikitNum;
     public int grenadeNum;
     public int invenNum;
+    public int money;
 
 
     private float recoveryTime = 0;
@@ -23,6 +24,7 @@ public class PlayerState : MonoBehaviour
 
     private void Start()
     {
+        money = 0;
         playerMove = gameObject.GetComponent<PlayerMove>();
         medikitNum = 0;
         invenNum = 3;

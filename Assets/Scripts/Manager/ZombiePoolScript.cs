@@ -9,6 +9,9 @@ public class ZombiePoolScript : MonoBehaviour
 
     [SerializeField]
     private GameObject zombiePrefab;
+    [SerializeField]
+    private int dropMoney;
+    private Vector3 position;
 
     Queue<GameObject> zombiePoolQueue = new Queue<GameObject>();
 
@@ -27,21 +30,20 @@ public class ZombiePoolScript : MonoBehaviour
 
     public GameObject GetZombieObject()
     {
-        if(Instance.zombiePoolQueue.Count > 0)
+        dynamic obj = null;
+
+        if (Instance.zombiePoolQueue.Count == 0)
         {
-            var obj = Instance.zombiePoolQueue.Dequeue();
-            obj.transform.SetParent(null);
-            obj.SetActive(true);
-            return obj;
+            obj = Instance.CreateNewZombieObject();
+            Instance.zombiePoolQueue.Enqueue(obj);
         }
 
-        else
-        {
-            var newObj = Instance.CreateNewZombieObject();
-            newObj.SetActive(true);
-            newObj.transform.SetParent(null);
-            return newObj;
-        }
+        obj = Instance.zombiePoolQueue.Dequeue();
+        obj.SetActive(true);
+        obj.transform.SetParent(null);
+        obj.transform.position = position;
+
+        return obj;
     }
 
     public void PutZombieObject(GameObject Obj)
@@ -49,5 +51,11 @@ public class ZombiePoolScript : MonoBehaviour
         Obj.SetActive(false);
         Obj.transform.SetParent(Instance.transform);
         Instance.zombiePoolQueue.Enqueue(Obj);
+        PlayerState.Instance.money += dropMoney;
+    }
+
+    public void setPosition(Vector3 _position)
+    {
+        position = _position;
     }
 }
