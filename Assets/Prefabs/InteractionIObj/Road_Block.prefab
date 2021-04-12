@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8364375191653491832}
   - component: {fileID: 8405637910032877784}
   - component: {fileID: 2262200307704705719}
+  - component: {fileID: 5592145658602018820}
   m_Layer: 0
   m_Name: Road_Block
   m_TagString: Untagged
@@ -109,4 +110,17 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.3482869, y: 1.072627, z: 0.89421916}
+  m_Center: {x: 0, y: 0, z: 0.00000017881396}
+--- !u!65 &5592145658602018820
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8378385295292101424}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 2.3482869, y: 1.0726268, z: 0.89421916}
   m_Center: {x: 0, y: 0, z: 0.00000017881396}

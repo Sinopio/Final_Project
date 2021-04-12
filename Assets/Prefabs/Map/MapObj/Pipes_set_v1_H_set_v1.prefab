@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 5221276998727779669}
   - component: {fileID: 5211008857834461809}
   - component: {fileID: 5252271637529492167}
+  - component: {fileID: 961864552898977933}
   m_Layer: 0
   m_Name: Pipes_set_v1_H_set_v1
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -94,5 +95,19 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300040, guid: 993e7ae5872aa394c80c399e077992bf, type: 3}
+--- !u!64 &961864552898977933
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5188994564723380839}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300040, guid: 993e7ae5872aa394c80c399e077992bf, type: 3}

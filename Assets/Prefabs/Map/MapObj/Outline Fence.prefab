@@ -12,9 +12,10 @@ GameObject:
   - component: {fileID: 210892661429832688}
   - component: {fileID: 200892831702858054}
   - component: {fileID: 179842437811625136}
+  - component: {fileID: 5522077572585089365}
   m_Layer: 0
   m_Name: Outline Fence
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -91,6 +92,19 @@ BoxCollider:
   m_GameObject: {fileID: 187898934977187406}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.71984005, y: 3.2973251, z: 18.681244}
+  m_Center: {x: 0, y: -0.000000059604645, z: -0.00000047683716}
+--- !u!65 &5522077572585089365
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 187898934977187406}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.71984005, y: 3.2973251, z: 18.681244}

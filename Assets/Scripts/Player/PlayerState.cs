@@ -13,6 +13,7 @@ public class PlayerState : MonoBehaviour
     public int grenadeNum;
     public int invenNum;
     public int money;
+    public float speed;
 
 
     private float recoveryTime = 0;
@@ -43,12 +44,12 @@ public class PlayerState : MonoBehaviour
             recoveryTime += Time.deltaTime;
             if(recoveryTime < 3.0f)
             {
-                playerMove.moveSpeed = 2.0f;
+                speed = 2.0f;
             }
             else if (recoveryTime > 3.0f)
             {
                 Hp = 80;
-                playerMove.moveSpeed = 7.0f;
+                speed = 7.0f;
                 medikitNum--;
                 recoveryTime = 0;
             }

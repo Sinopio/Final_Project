@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    public float moveSpeed;
     [SerializeField]
     private float jumpRange;
     [SerializeField]
@@ -36,7 +35,8 @@ public class PlayerMove : MonoBehaviour
 
         Vector3 Horizontla_move = transform.right * X_move;
         Vector3 Vertical_move = transform.forward * Z_move;
-        Vector3 _move = (Horizontla_move + Vertical_move).normalized * moveSpeed;
+        Vector3 _move = (Horizontla_move + Vertical_move).normalized * 
+            PlayerState.Instance.speed;
 
         rig.MovePosition(transform.position + _move * Time.deltaTime);
     }

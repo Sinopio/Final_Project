@@ -69,7 +69,10 @@
     <Compile Include="Assets\Scripts\Player\Camera\CameraRoadScript.cs" />
     <Compile Include="Assets\Scripts\Effect\BloodEffectPoolScript.cs" />
     <Compile Include="Assets\Scripts\Zombie\ZombieNaviScript.cs" />
+    <Compile Include="Assets\Scripts\Gun\ShotScript.cs" />
+    <Compile Include="Assets\Scripts\Player\SetObj\SetObjScript.cs" />
     <Compile Include="Assets\Scripts\UI\InvenUiScript.cs" />
+    <Compile Include="Assets\Scripts\UI\ShopScript.cs" />
     <Compile Include="Assets\Scripts\Resource\CreatePaletScript.cs" />
     <Compile Include="Assets\Scripts\Zombie\ZombieSoundSectorScript.cs" />
     <Compile Include="Assets\Scripts\Event\GeneratorScript.cs" />
@@ -144,8 +147,8 @@
     <Compile Include="Assets\Download_Assets\JMO Assets\WarFX\Spawn System\CFX_SpawnSystem.cs" />
     <Compile Include="Assets\Scripts\Player\SwapGunScript.cs" />
     <Compile Include="Assets\Scripts\Zombie\ZombieState.cs" />
-    <Compile Include="Assets\Scripts\Gun\ShotScript.cs" />
     <Compile Include="Assets\Scripts\Zombie\ZombieSpwanScript.cs" />
+    <Compile Include="Assets\Scripts\Player\SetObj\CheckContactScript.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Download_Assets\JMO Assets\WarFX\Shaders\WFX_S Multiply Soft.shader" />

@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 3677646309127319932}
   - component: {fileID: 3727702974131604534}
   - component: {fileID: 7390866569511511683}
+  - component: {fileID: 154259037518898505}
   m_Layer: 0
   m_Name: Oil_tank_2
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,6 +107,19 @@ BoxCollider:
   m_GameObject: {fileID: 3700732045982293922}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.7406738, y: 5.1842904, z: 1.7142303}
+  m_Center: {x: -0.000001847744, y: -0.013386011, z: -0.0000011026859}
+--- !u!65 &154259037518898505
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3700732045982293922}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1.7406738, y: 5.1842904, z: 1.7142303}

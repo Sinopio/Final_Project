@@ -13,9 +13,11 @@ GameObject:
   - component: {fileID: 7057338397690193268}
   - component: {fileID: 7008263126414563142}
   - component: {fileID: 6478459957529035524}
+  - component: {fileID: 6809220195102643237}
+  - component: {fileID: 2173051205452542048}
   m_Layer: 0
   m_Name: Hangar_v2_outbuilding
-  m_TagString: Untagged
+  m_TagString: Map
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -110,3 +112,29 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 8.247178, y: 6.274411, z: 7.8440933}
   m_Center: {x: -3.9458156, y: 0, z: -5.684342e-14}
+--- !u!65 &6809220195102643237
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7035335116497076592}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 8.247178, y: 6.274411, z: 7.8440933}
+  m_Center: {x: -3.9458156, y: 0, z: -5.684342e-14}
+--- !u!65 &2173051205452542048
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7035335116497076592}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 8.247178, y: 2.6866045, z: 5.224758}
+  m_Center: {x: 4.15, y: 1.0552387, z: 0.11388397}
