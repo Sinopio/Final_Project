@@ -9,12 +9,17 @@ public class ShopScript : MonoBehaviour
     private GameObject cursorManager;
     [SerializeField]
     private GameObject shopUI;
-    private bool uiActive;
+    [SerializeField]
+    private GameObject player;
     [SerializeField]
     private Text itemInfo;
 
+
+    private PlayerMove playerMove;
+    private bool uiActive;
     private void Start()
     {
+        playerMove = player.GetComponent<PlayerMove>();
         shopUI.SetActive(false);
         uiActive = false;
     }
@@ -31,6 +36,7 @@ public class ShopScript : MonoBehaviour
             uiActive = true;
             shopUI.SetActive(true);
             cursorManager.SetActive(false);
+            playerMove.enabled = false;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;
         }
@@ -40,6 +46,7 @@ public class ShopScript : MonoBehaviour
             uiActive = false;
             shopUI.SetActive(false);
             cursorManager.SetActive(true);
+            playerMove.enabled = true;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
         }

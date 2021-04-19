@@ -89,6 +89,7 @@
     <Compile Include="Assets\Scripts\Bullet\BulletScript.cs" />
     <Compile Include="Assets\Scripts\UI\WorldToScreenScript.cs" />
     <Compile Include="Assets\Download_Assets\EffectExamples\Shared\Scripts\GunShoot.cs" />
+    <Compile Include="Assets\Scripts\UI\BuildingInfoScirpt.cs" />
     <Compile Include="Assets\Download_Assets\EffectExamples\Shared\Scripts\DecalDestroyer.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerGunScript.cs" />
     <Compile Include="Assets\Scripts\Item\BombDmgScripts.cs" />
@@ -121,6 +122,7 @@
     <Compile Include="Assets\Prefabs\Dummy\DummyZombiePool.cs" />
     <Compile Include="Assets\Scripts\Zombie\ZombieDestinationScript.cs" />
     <Compile Include="Assets\Scripts\Zombie\ZombieSectorScript.cs" />
+    <Compile Include="Assets\Scripts\UI\ShopInfoTextScript.cs" />
     <Compile Include="Assets\Scripts\UI\GunUiScript.cs" />
     <Compile Include="Assets\Scripts\Manager\InvenManagerScript.cs" />
     <Compile Include="Assets\Scripts\Player\Knife\KnifeSound.cs" />
@@ -131,6 +133,7 @@
     <Compile Include="Assets\Download_Assets\JMO Assets\WarFX\Scripts\WFX_LightFlicker.cs" />
     <Compile Include="Assets\Download_Assets\EffectExamples\Shared\Scripts\ExtinguishableFire.cs" />
     <Compile Include="Assets\Scripts\Manager\GunManagerScript.cs" />
+    <Compile Include="Assets\Scripts\Player\SetObj\CheckContactScript.cs" />
     <Compile Include="Assets\Scripts\Resource\GetWoodScript.cs" />
     <Compile Include="Assets\Scripts\UI\SafeHouseRadarScript.cs" />
     <Compile Include="Assets\Scripts\Zombie\ZombieRayScript.cs" />
@@ -148,7 +151,9 @@
     <Compile Include="Assets\Scripts\Player\SwapGunScript.cs" />
     <Compile Include="Assets\Scripts\Zombie\ZombieState.cs" />
     <Compile Include="Assets\Scripts\Zombie\ZombieSpwanScript.cs" />
-    <Compile Include="Assets\Scripts\Player\SetObj\CheckContactScript.cs" />
+    <Compile Include="Assets\Scripts\UI\AmmoScript.cs" />
+    <Compile Include="Assets\Scripts\UI\RadarSphereScript.cs" />
+    <Compile Include="Assets\Scripts\UI\DamageEffectScript.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Download_Assets\JMO Assets\WarFX\Shaders\WFX_S Multiply Soft.shader" />

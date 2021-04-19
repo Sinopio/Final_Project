@@ -10,6 +10,7 @@ public class ShotScript : MonoBehaviour
     private float shotDelay;
     [SerializeField]
     private GameObject manager;
+
     private GunManagerScript gunManager;
 
     //건매니져에서 정보 가져오기
@@ -27,8 +28,9 @@ public class ShotScript : MonoBehaviour
     //총알풀에서 총알 가져오기
     void shot()
     {
-        if (Input.GetMouseButton(0) && checkDelay())
+        if (Input.GetMouseButton(0) && checkDelay() && gunManager.deck[0].gunAmmo > 0)
         {
+            gunManager.deck[0].gunAmmo--;
             BulletPoolScript.Instance.GetBullet();
         }
     }

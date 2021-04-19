@@ -11,6 +11,8 @@ TagManager:
   - Grenade
   - KnifeAtk
   - Map
+  - Radar
+  - ZombieAtk
   layers:
   - Default
   - TransparentFX

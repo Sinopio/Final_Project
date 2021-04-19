@@ -17,14 +17,19 @@ public class RifleSoundScript : MonoBehaviour
     private AudioClip reload;
     [SerializeField]
     private float shotDelay;
-
+    [SerializeField]
+    private GameObject manager;
+    private GunManagerScript gunManager;
+    private bool canReload;
 
     // Start is called before the first frame update
     void Start()
     {
+        gunManager = manager.GetComponent<GunManagerScript>();
         animator = gameObject.GetComponent<Animator>();
         audio = gameObject.AddComponent<AudioSource>();
         audio.loop = false;
+        canReload = false;
         animator.SetBool("Move", true);
     }
 
@@ -36,6 +41,7 @@ public class RifleSoundScript : MonoBehaviour
     private void Update()
     {
         RifleAni();
+        reloadRifle();
         delayTime += Time.deltaTime;
     }
 
@@ -53,7 +59,7 @@ public class RifleSoundScript : MonoBehaviour
             animator.SetBool("Move", false);
         }
 
-        if (Input.GetMouseButton(0) && checkDelay())
+        if (Input.GetMouseButton(0) && checkDelay() && gunManager.deck[0].gunAmmo > 0)
         {
             animator.SetBool("Shot", true);
             audio.clip = shot;
@@ -71,6 +77,7 @@ public class RifleSoundScript : MonoBehaviour
             audio.clip = reload;
             audio.Play();
             animator.SetBool("Reload", true);
+            canReload = true;
         }
 
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("RifleReload")
@@ -78,6 +85,41 @@ public class RifleSoundScript : MonoBehaviour
         {
             animator.SetBool("Reload", false);
         }
+    }
+
+    void reloadRifle()
+    {
+        /*
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("RifleReload")
+            && animator.GetCurrentAnimatorStateInfo(0).normalizedTime > 1.0f)
+        {
+            canReload = true;
+        }
+        */
+        if(canReload)
+        {
+            if(gunManager.deck[0].gunFullAmmo >= gunManager.deck[0].ammoNum)
+            {
+                gunManager.deck[0].gunFullAmmo += gunManager.deck[0].gunAmmo;
+                gunManager.deck[0].gunAmmo = 0;
+                gunManager.deck[0].gunAmmo += gunManager.deck[0].ammoNum;
+                gunManager.deck[0].gunFullAmmo -= gunManager.deck[0].ammoNum;
+                canReload = false;
+            }
+
+            if (gunManager.deck[0].gunFullAmmo < gunManager.deck[0].ammoNum)
+            {
+                gunManager.deck[0].gunAmmo += gunManager.deck[0].gunFullAmmo;
+                gunManager.deck[0].gunFullAmmo = 0;
+                canReload = false;
+            }
+
+            if(gunManager.deck[0].gunFullAmmo == 0)
+            {
+                canReload = false;
+            }
+        }
+
     }
 
     bool checkDelay()

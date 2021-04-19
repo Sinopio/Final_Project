@@ -10,18 +10,24 @@ public class SetObjScript : MonoBehaviour
     private GameObject interactionObjUI;
     [SerializeField]
     private GameObject interactionObj;
-
+    [SerializeField]
+    private GameObject player;
     [SerializeField]
     private GameObject explosiveObj;
     [SerializeField]
     private Transform objPosition;
+    [SerializeField]
+    private GameObject mouseUi;
+
     private CheckContactScript checkContact;
 
+    private PlayerMove playerMove;
     private bool uiActive;
     private int objNum;
 
     private void Start()
     {
+        playerMove = player.GetComponent<PlayerMove>();
         objNum = 0;
         interactionObjUI.SetActive(false);
         uiActive = false;
@@ -42,7 +48,7 @@ public class SetObjScript : MonoBehaviour
             cursorManager.SetActive(false);
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;
-
+            playerMove.enabled = false;
             objNum = 0;
         }
 
@@ -53,6 +59,7 @@ public class SetObjScript : MonoBehaviour
             cursorManager.SetActive(true);
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
+            playerMove.enabled = true;
         }
     }
 
@@ -67,6 +74,8 @@ public class SetObjScript : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Debug.Log("set Explosive Obj");
         objNum = 1;
+        playerMove.enabled = true;
+        mouseUi.SetActive(true);
     }
 
     void setObj()
@@ -79,19 +88,33 @@ public class SetObjScript : MonoBehaviour
             case 1:
                 interactionObj = explosiveObj;
                 interactionObj.SetActive(true);
-                interactionObj.transform.position = new Vector3(objPosition.position.x, 0.5f, objPosition.position.z);
+                interactionObj.transform.position = new Vector3(objPosition.position.x, 0.55f, objPosition.position.z);
                 checkContact = interactionObj.GetComponent<CheckContactScript>();
-                
+
                 if (Input.GetMouseButtonDown(0) && checkContact.contact)
                 {
                     Debug.Log("충돌!");
                 }
-
+             
                 if (Input.GetMouseButtonDown(0) && !checkContact.contact)
                 {
                     Instantiate(explosiveObj, interactionObj.transform.position, Quaternion.identity);
                     objNum = 0;
+                    mouseUi.SetActive(false);
                     PlayerState.Instance.money -= 500;
+                }
+
+                if(Input.GetMouseButtonDown(1))
+                {
+                    objNum = 0;
+                    explosiveObj.SetActive(false);
+                    mouseUi.SetActive(false);
+                    uiActive = false;
+                    interactionObjUI.SetActive(false);
+                    cursorManager.SetActive(true);
+                    Cursor.visible = false;
+                    Cursor.lockState = CursorLockMode.Locked;
+                    playerMove.enabled = true;
                 }
                 break;
         }

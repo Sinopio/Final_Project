@@ -4,32 +4,48 @@ using UnityEngine;
 
 public class CheckContactScript : MonoBehaviour
 {
+    private bool inInstalling;
     public bool contact;
+
+    private Renderer rend;
+
+    [SerializeField]
+    private Material red;
+    [SerializeField]
+    private Material nomal;
+
+    private void Start()
+    {
+        rend = gameObject.GetComponent<Renderer>();
+        inInstalling = false;
+    }
+
+    private void Update()
+    {
+        if (!inInstalling)
+        {
+            rend.material = nomal;
+        }
+
+        if(Input.GetMouseButtonDown(0))
+        {
+            inInstalling = false;
+        }
+    }
 
     private void OnTriggerEnter(Collider col)
     {
         if (col.tag == "Map")
         {
             contact = true;
-            Debug.Log(contact + col.tag + "충돌 시작");
+            inInstalling = true;
+            rend.material = red;
         }
-    }
-    
-    private void OnTriggerStay(Collider other)
-    {
-        Debug.Log(other.tag + "충돌 중");
     }
 
     private void OnTriggerExit(Collider col)
     {
         contact = false;
-        Debug.Log(contact + "충돌 끝");
-        /*
-        if (col.tag == "Map")
-        {
-            contact = false;
-            Debug.Log(contact + "충돌 끝");
-        }
-        */
+        inInstalling = false;
     }
 }
