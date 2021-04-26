@@ -7,6 +7,8 @@ public class AmmoScript : MonoBehaviour
     [SerializeField]
     private Text ammoText;
     [SerializeField]
+    private Text ammoFullText;
+    [SerializeField]
     private GameObject gunManger;
     private GunManagerScript managerScript;
 
@@ -25,11 +27,28 @@ public class AmmoScript : MonoBehaviour
         switch(PlayerState.Instance.invenNum)
         {
             case 1:
-                ammoText.text = managerScript.deck[0].gunAmmo + " / " + managerScript.deck[0].gunFullAmmo;
+                ammoText.text = managerScript.deck[0].gunAmmo + "";
+                ammoFullText.text = "" + managerScript.deck[0].gunFullAmmo;
+                break;
+
+            case 2:
+                ammoText.text = managerScript.deck[1].gunAmmo + "";
+                ammoFullText.text = "" + managerScript.deck[1].gunFullAmmo;
                 break;
 
             case 3:
-                ammoText.text = " - / - ";
+                ammoText.text = " - ";
+                ammoFullText.text = " - ";
+                break;
+
+            case 10:
+                ammoText.text = " - ";
+                ammoFullText.text = " - ";
+                break;
+
+            case 11:
+                ammoText.text = " - ";
+                ammoFullText.text = " - ";
                 break;
         }
     }

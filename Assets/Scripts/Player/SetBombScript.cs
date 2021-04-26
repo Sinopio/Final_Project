@@ -28,7 +28,7 @@ public class SetBombScript : MonoBehaviour
             bomb.transform.position = throwPosition.transform.position;
         }        
 
-        if (PlayerState.Instance.invenNum == 3 && Input.GetMouseButtonDown(0))
+        if (PlayerState.Instance.invenNum == 10 && Input.GetMouseButtonDown(0))
         {
             isSet = true;
             bomb.SetActive(true);

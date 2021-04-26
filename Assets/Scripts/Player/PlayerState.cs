@@ -27,7 +27,7 @@ public class PlayerState : MonoBehaviour
     {
         money = 0;
         playerMove = gameObject.GetComponent<PlayerMove>();
-        medikitNum = 0;
+        medikitNum = 100;
         invenNum = 3;
     }
 
@@ -66,13 +66,17 @@ public class PlayerState : MonoBehaviour
         {
             invenNum = 2;
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha3) && grenadeNum > 0)
+        else if (Input.GetKeyDown(KeyCode.Alpha3))
         {
             invenNum = 3;
         }
-        else if (Input.GetKeyDown(KeyCode.Alpha4) && medikitNum > 0)
+        else if (Input.GetKeyDown(KeyCode.G))
         {
-            invenNum = 4;
+            invenNum = 10;
+        }
+        else if (Input.GetKeyDown(KeyCode.H))
+        {
+            invenNum = 11;
         }
     }
 }

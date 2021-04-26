@@ -14,12 +14,25 @@ public class ShopScript : MonoBehaviour
     [SerializeField]
     private Text itemInfo;
 
+    [SerializeField]
+    private Text dmgUpText;
+    [SerializeField]
+    private Text speedUpText;
+    [SerializeField]
+    private GameObject gunmanager;
+    private GunManagerScript gunManagerScript;
+    private float speedNum = 100;
+    private float dmgNum = 100;
+
 
     private PlayerMove playerMove;
     private bool uiActive;
     private void Start()
     {
+        speedNum = 100;
+        dmgNum = 100;
         playerMove = player.GetComponent<PlayerMove>();
+        gunManagerScript = gunmanager.GetComponent<GunManagerScript>();
         shopUI.SetActive(false);
         uiActive = false;
     }
@@ -27,6 +40,13 @@ public class ShopScript : MonoBehaviour
     private void Update()
     {
         setShopUI();
+        upgradeText();
+    }
+
+    void upgradeText()
+    {
+        dmgUpText.text = dmgNum + " %";
+        speedUpText.text = speedNum + " %";
     }
 
     void setShopUI()
@@ -54,18 +74,26 @@ public class ShopScript : MonoBehaviour
 
     public void UpgradeDmg()
     {
-        Debug.Log("DmgUp");
+        gunManagerScript.deck[0].gunDmg *= 1.1f;
+        gunManagerScript.deck[1].gunDmg *= 1.1f;
+        gunManagerScript.deck[2].gunDmg *= 1.1f;
+        gunManagerScript.deck[3].gunDmg *= 1.1f;
+        dmgNum += 10;
+        
     }
 
     public void UpgradeHp()
     {
         PlayerState.Instance.Hp += 20;
         PlayerState.Instance.MaxHp += 20;
+
     }
 
     public void UpgradeSpeed()
     {
-        PlayerState.Instance.speed += 1f;
+        PlayerState.Instance.speed = 1.1f;
+        speedNum += 10;
+        
     }
 
     public void BuyBullet()

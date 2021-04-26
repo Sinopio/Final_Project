@@ -59,7 +59,7 @@ public class ThrowBombScript : MonoBehaviour
 
     void throwBomb()
     {
-        if (PlayerState.Instance.invenNum == 3 && Input.GetMouseButtonUp(0) && PlayerState.Instance.grenadeNum > 0)
+        if (PlayerState.Instance.invenNum == 10 && Input.GetMouseButtonUp(0) && PlayerState.Instance.grenadeNum > 0)
         {
             isthrow = true;
 
@@ -101,7 +101,7 @@ public class ThrowBombScript : MonoBehaviour
 
     void setThrowPosition()
     {
-        if (PlayerState.Instance.invenNum == 3 && Input.GetMouseButton(0))
+        if (PlayerState.Instance.invenNum == 10 && Input.GetMouseButton(0))
         {
             target.transform.Translate(Vector3.forward * Time.deltaTime*10);
         }
@@ -109,12 +109,12 @@ public class ThrowBombScript : MonoBehaviour
 
     void drawParabola()
     {
-        if (PlayerState.Instance.invenNum == 3 && Input.GetMouseButton(0) && PlayerState.Instance.grenadeNum > 0)
+        if (PlayerState.Instance.invenNum == 10 && Input.GetMouseButton(0) && PlayerState.Instance.grenadeNum > 0)
         {
             parabola.SetActive(true);
             targetSphere.SetActive(true);
         }
-        else if(PlayerState.Instance.invenNum != 3 || !Input.GetMouseButton(0) || PlayerState.Instance.grenadeNum <= 0)
+        else if(PlayerState.Instance.invenNum != 10 || !Input.GetMouseButton(0) || PlayerState.Instance.grenadeNum <= 0)
         {
             parabola.SetActive(false);
             targetSphere.SetActive(false);

@@ -41,7 +41,7 @@ public class RifleSoundScript : MonoBehaviour
     private void Update()
     {
         RifleAni();
-        reloadRifle();
+        ReloadRifle();
         delayTime += Time.deltaTime;
     }
 
@@ -87,7 +87,7 @@ public class RifleSoundScript : MonoBehaviour
         }
     }
 
-    void reloadRifle()
+    void ReloadRifle()
     {
         /*
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("RifleReload")
