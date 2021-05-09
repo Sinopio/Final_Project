@@ -46,7 +46,7 @@ public class ZombieState : MonoBehaviour
     private void OnDisable()
     {
         zombieCount++;
-        Debug.Log("소멸 >> " + zombieCount);
+        //Debug.Log("소멸 >> " + zombieCount);
         manager = mobManager.GetComponent<MobManagerScript>();
         stateHp = manager.deck[mobNumber].mobHp;
         stateDmg = manager.deck[mobNumber].mobDmg;

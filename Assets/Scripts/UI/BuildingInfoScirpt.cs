@@ -13,6 +13,11 @@ public class BuildingInfoScirpt : MonoBehaviour
         objInfo.text = " 폭발형 함정을 설치합니다. \n\n\n\n\n\n $:500";
     }
 
+    public void enterBlock()
+    {
+        objInfo.text = " 장애물을 설치합니다. \n\n\n\n\n\n $:500";
+    }
+
     public void exitButtonUi()
     {
         objInfo.text = "";

@@ -15,6 +15,8 @@ public class SetObjScript : MonoBehaviour
     [SerializeField]
     private GameObject explosiveObj;
     [SerializeField]
+    private GameObject blockObj;
+    [SerializeField]
     private Transform objPosition;
     [SerializeField]
     private GameObject mouseUi;
@@ -78,6 +80,20 @@ public class SetObjScript : MonoBehaviour
         mouseUi.SetActive(true);
     }
 
+    public void selectBlock()
+    {
+        //explosiveObj.SetActive(true);
+        uiActive = false;
+        interactionObjUI.SetActive(false);
+
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Debug.Log("set Block Obj");
+        objNum = 2;
+        playerMove.enabled = true;
+        mouseUi.SetActive(true);
+    }
+
     void setObj()
     {
         switch(objNum)
@@ -108,6 +124,39 @@ public class SetObjScript : MonoBehaviour
                 {
                     objNum = 0;
                     explosiveObj.SetActive(false);
+                    mouseUi.SetActive(false);
+                    uiActive = false;
+                    interactionObjUI.SetActive(false);
+                    cursorManager.SetActive(true);
+                    Cursor.visible = false;
+                    Cursor.lockState = CursorLockMode.Locked;
+                    playerMove.enabled = true;
+                }
+                break;
+
+            case 2:
+                interactionObj = blockObj;
+                interactionObj.SetActive(true);
+                interactionObj.transform.position = new Vector3(objPosition.position.x, 0.55f, objPosition.position.z);
+                checkContact = interactionObj.GetComponent<CheckContactScript>();
+
+                if (Input.GetMouseButtonDown(0) && checkContact.contact)
+                {
+                    Debug.Log("충돌!");
+                }
+
+                if (Input.GetMouseButtonDown(0) && !checkContact.contact)
+                {
+                    Instantiate(blockObj, interactionObj.transform.position, Quaternion.identity);
+                    objNum = 0;
+                    mouseUi.SetActive(false);
+                    PlayerState.Instance.money -= 500;
+                }
+
+                if (Input.GetMouseButtonDown(1))
+                {
+                    objNum = 0;
+                    blockObj.SetActive(false);
                     mouseUi.SetActive(false);
                     uiActive = false;
                     interactionObjUI.SetActive(false);

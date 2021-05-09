@@ -59,7 +59,9 @@
     <Compile Include="Assets\Scripts\Player\Pistol\PistolAniSoundScript.cs" />
     <Compile Include="Assets\Download_Assets\JMO Assets\WarFX\Demo\Assets\CFX_Demo_Translate.cs" />
     <Compile Include="Assets\Scripts\Player\Rifle\RifleSoundScript.cs" />
+    <Compile Include="Assets\Scripts\MainScene\UpgradeUI.cs" />
     <Compile Include="Assets\Scripts\Player\Knife\KnifeAniScript.cs" />
+    <Compile Include="Assets\Scripts\DontDestoryOnLoad.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerMove.cs" />
     <Compile Include="Assets\Scripts\UI\DamageEffectScript.cs" />
     <Compile Include="Assets\Scripts\Player\SetBombScript.cs" />
@@ -117,9 +119,11 @@
     <Compile Include="Assets\Scripts\Manager\CursorMangerScript.cs" />
     <Compile Include="Assets\Scripts\Zombie\ZombieGetGrenadeDmgScript.cs" />
     <Compile Include="Assets\Scripts\Bullet\GetGunInfoScript.cs" />
+    <Compile Include="Assets\Scripts\Scene\SceneScript.cs" />
     <Compile Include="Assets\Download_Assets\JMO Assets\WarFX\Scripts\CFX_LightIntensityFade.cs" />
     <Compile Include="Assets\Scripts\Resource\PaletHpScript.cs" />
     <Compile Include="Assets\Scripts\UI\ZombieNumScript.cs" />
+    <Compile Include="Assets\Scripts\MainScene\ItemRotation.cs" />
     <Compile Include="Assets\Scripts\Item\BombEffectScript.cs" />
     <Compile Include="Assets\Download_Assets\SMC Pack 1\Demo\DemoAssets\V_SMC_Handler.cs" />
     <Compile Include="Assets\Scripts\Zombie\ZombieSoundRangeScript.cs" />
@@ -130,6 +134,7 @@
     <Compile Include="Assets\Scripts\Zombie\ZombieDestinationScript.cs" />
     <Compile Include="Assets\Scripts\Zombie\ZombieSectorScript.cs" />
     <Compile Include="Assets\Scripts\UI\ShopInfoTextScript.cs" />
+    <Compile Include="Assets\Scripts\MainScene\WeaponSelect.cs" />
     <Compile Include="Assets\Scripts\UI\GunUiScript.cs" />
     <Compile Include="Assets\Scripts\Manager\InvenManagerScript.cs" />
     <Compile Include="Assets\Scripts\Player\Knife\KnifeSound.cs" />
@@ -160,6 +165,7 @@
     <Compile Include="Assets\Scripts\Player\SwapGunScript.cs" />
     <Compile Include="Assets\Scripts\Zombie\ZombieState.cs" />
     <Compile Include="Assets\Scripts\Zombie\ZombieSpwanScript.cs" />
+    <Compile Include="Assets\Scripts\MainScene\CamMove.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Download_Assets\JMO Assets\WarFX\Shaders\WFX_S Multiply Soft.shader" />
