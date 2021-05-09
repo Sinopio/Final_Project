@@ -17,7 +17,7 @@ public class CamMove : MonoBehaviour
     private void Start()
     {
         atHome = false;
-        home = new Vector3(0, 4.5f, -8);
+        home = new Vector3(-8, 2.5f, 0);
         weapon = new Vector3(5.5f, 2.5f, 0);
         home_r = new Vector3(21, 0, 0);
         weapon_r = new Vector3(0, 90, 0);
@@ -27,7 +27,7 @@ public class CamMove : MonoBehaviour
     {
         if (atHome)
         {
-            cam.transform.position = Vector3.Slerp(transform.position, home, 0.5f);
+            cam.transform.position = Vector3.Slerp(transform.position, home, 1.0f);
             cam.transform.rotation = Quaternion.Euler(home_r);
         }
         if (!atHome)
@@ -40,7 +40,7 @@ public class CamMove : MonoBehaviour
     public void goHome()
     {
         atHome = true;
-        cam.transform.position = Vector3.Lerp(transform.position, home, 0.1f);
+        cam.transform.position = Vector3.Lerp(transform.position, home, 1.0f);
         cam.transform.rotation = Quaternion.Euler(home_r);
     }
 

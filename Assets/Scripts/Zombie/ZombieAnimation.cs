@@ -9,8 +9,22 @@ public class ZombieAnimation : MonoBehaviour
     private ZombieState state;
     private ZombieSectorScript zombieSectorScript;
 
+    private AudioSource audio;
+
+    [SerializeField]
+    private AudioClip birth;
+    [SerializeField]
+    private AudioClip atk;
+    [SerializeField]
+    private AudioClip die;
+    [SerializeField]
+    private AudioClip angry;
+
     private void Start()
     {
+        audio = gameObject.GetComponent<AudioSource>();
+        audio.loop = false;
+        audio.spatialBlend = 1.0f;
         animator = GetComponent<Animator>();
         state = GetComponent<ZombieState>();
         zombieSectorScript = GetComponent<ZombieSectorScript>();
@@ -21,11 +35,11 @@ public class ZombieAnimation : MonoBehaviour
         UpdateZombieAni();
         putZombiePool();
         setAtkAniTime();
+        UpdateZombieSound();
     }
 
     void UpdateZombieAni()
     {
-
         switch (state.zombieState)
         {
             case 0: // Idle
@@ -71,6 +85,36 @@ public class ZombieAnimation : MonoBehaviour
         }
     }
 
+    void UpdateZombieSound()
+    {
+        switch (state.zombieState)
+        {
+            case 0: // Idle
+                audio.clip = birth;
+                audio.Play();
+                break;
+            case 1: // inRay
+                audio.clip = angry;
+                audio.Play();
+                break;
+            case 2: // Atk
+                audio.clip = atk;
+                audio.Play();
+                break;
+            case 5: // Die
+                audio.clip = die;
+                audio.Play();
+                break;
+        }
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Z_Attack")
+            && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.1f)
+        {
+            audio.clip = atk;
+            audio.Play();
+        }
+
+    }
+
     void putZombiePool()
     {
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Z_FallingBack")
@@ -79,12 +123,11 @@ public class ZombieAnimation : MonoBehaviour
             ZombiePoolScript.Instance.PutZombieObject(gameObject);
         }
     }
-
     void setAtkAniTime()
     {
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Z_Attack")
             && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
-        {
+        {   
             animator.Play("Z_Attack", -1, 0f);
         }
     }

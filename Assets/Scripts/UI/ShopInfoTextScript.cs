@@ -24,19 +24,24 @@ public class ShopInfoTextScript : MonoBehaviour
     }
 
     //-----------------------------------------------------------------------//
-    public void enterBuyBullet()
+    public void enterBuyRifleBullet()
     {
-        shopInfo.text = "무기별 총알을 구매합니다. \n\n\n\n\n\n $:500";
+        shopInfo.text = "라이플의 총알을 구매합니다. \n\n\n\n\n\n $:500";
+    }
+
+    public void enterBuyPistolBullet()
+    {
+        shopInfo.text = "권총의 총알을 구매합니다. \n\n\n\n\n\n $:200";
     }
 
     public void enterBuyGrenade()
     {
-        shopInfo.text = "수류탄을 구매합니다. \n\n\n\n\n\n $:500";
+        shopInfo.text = "수류탄을 구매합니다. \n\n\n\n\n\n $:1000";
     }
 
     public void enterBuyMedikit()
     {
-        shopInfo.text = "체력회복약을 구매합니다. \n\n\n\n\n\n $:500";
+        shopInfo.text = "체력회복약을 구매합니다. \n\n\n\n\n\n $:800";
     }
 
 

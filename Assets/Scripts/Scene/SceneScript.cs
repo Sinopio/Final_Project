@@ -5,11 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneScript : MonoBehaviour
 {
-    
-
     public void MainToStage1()
     {
-        Debug.Log("asdf");
         SceneManager.LoadScene(1);
     }
 }

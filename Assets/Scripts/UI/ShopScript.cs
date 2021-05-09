@@ -13,24 +13,18 @@ public class ShopScript : MonoBehaviour
     private GameObject player;
     [SerializeField]
     private Text itemInfo;
-
-    [SerializeField]
-    private Text dmgUpText;
-    [SerializeField]
-    private Text speedUpText;
     [SerializeField]
     private GameObject gunmanager;
     private GunManagerScript gunManagerScript;
-    private float speedNum = 100;
-    private float dmgNum = 100;
-
+    [SerializeField]
+    private Text playerMoney;
+    [SerializeField]
+    private Text shopInfo;
 
     private PlayerMove playerMove;
     private bool uiActive;
     private void Start()
     {
-        speedNum = 100;
-        dmgNum = 100;
         playerMove = player.GetComponent<PlayerMove>();
         gunManagerScript = gunmanager.GetComponent<GunManagerScript>();
         shopUI.SetActive(false);
@@ -40,13 +34,12 @@ public class ShopScript : MonoBehaviour
     private void Update()
     {
         setShopUI();
-        upgradeText();
+        setMoney();
     }
 
-    void upgradeText()
+    void setMoney()
     {
-        dmgUpText.text = dmgNum + " %";
-        speedUpText.text = speedNum + " %";
+        playerMoney.text = "" + PlayerState.Instance.money;
     }
 
     void setShopUI()
@@ -72,42 +65,90 @@ public class ShopScript : MonoBehaviour
         }
     }
 
-    public void UpgradeDmg()
+    public void BuyRifleBullet()
     {
-        gunManagerScript.deck[0].gunDmg *= 1.1f;
-        gunManagerScript.deck[1].gunDmg *= 1.1f;
-        gunManagerScript.deck[2].gunDmg *= 1.1f;
-        gunManagerScript.deck[3].gunDmg *= 1.1f;
-        dmgNum += 10;
-        
+        if(PlayerState.Instance.money >= 500)
+        {
+            gunManagerScript.deck[0].gunFullAmmo += gunManagerScript.deck[0].ammoNum;
+            PlayerState.Instance.money -= 500;
+        }
+        else
+        {
+            shopInfo.text = "보유한 돈이 부족합니다.";
+        }
     }
 
-    public void UpgradeHp()
+    public void BuyPistolBullet()
     {
-        PlayerState.Instance.Hp += 20;
-        PlayerState.Instance.MaxHp += 20;
-
-    }
-
-    public void UpgradeSpeed()
-    {
-        PlayerState.Instance.speed = 1.1f;
-        speedNum += 10;
-        
-    }
-
-    public void BuyBullet()
-    {
-        Debug.Log("BuyBullet");
+        if (PlayerState.Instance.money >= 200)
+        {
+            gunManagerScript.deck[1].gunFullAmmo += gunManagerScript.deck[1].ammoNum;
+            PlayerState.Instance.money -= 200;
+        }
+        else
+        {
+            shopInfo.text = "보유한 돈이 부족합니다.";
+        }
     }
 
     public void BuyGrenade()
     {
-        PlayerState.Instance.grenadeNum++;
+        if (PlayerState.Instance.money >= 1000)
+        {
+            PlayerState.Instance.grenadeNum++;
+            PlayerState.Instance.money -= 1000;
+        }
+        else
+        {
+            shopInfo.text = "보유한 돈이 부족합니다.";
+        }
     }
 
     public void BuyFirstKit()
     {
-        PlayerState.Instance.medikitNum++;
+        if (PlayerState.Instance.money >= 800)
+        {
+            PlayerState.Instance.medikitNum++;
+            PlayerState.Instance.money -= 800;
+        }
+        else
+        {
+            shopInfo.text = "보유한 돈이 부족합니다.";
+        }
+    }
+
+    public void GetOut()
+    {
+        uiActive = false;
+        shopUI.SetActive(false);
+        cursorManager.SetActive(true);
+        playerMove.enabled = true;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+
+    public void enterBuyRifleBullet()
+    {
+        shopInfo.text = "라이플의 총알을 구매합니다. \n\n\n\n\n\n $:500";
+    }
+
+    public void enterBuyPistolBullet()
+    {
+        shopInfo.text = "권총의 총알을 구매합니다. \n\n\n\n\n\n $:200";
+    }
+
+    public void enterBuyGrenade()
+    {
+        shopInfo.text = "수류탄을 구매합니다. \n\n\n\n\n\n $:1000";
+    }
+
+    public void enterBuyMedikit()
+    {
+        shopInfo.text = "체력회복약을 구매합니다. \n\n\n\n\n\n $:800";
+    }
+
+    public void exitButtonUi()
+    {
+        shopInfo.text = "편의점 아포칼립스에 어서오세요";
     }
 }

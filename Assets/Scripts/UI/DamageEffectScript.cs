@@ -8,78 +8,58 @@ public class DamageEffectScript : MonoBehaviour
     [SerializeField]
     private GameObject dmgEffect;
     [SerializeField]
-    private bool onhit;
-
-    private float effectTime;
-
-    private void Update()
-    {
-        if(onhit && effectTime < 1.5f)
-        {
-            effectTime += Time.deltaTime;
-        }
-
-        if(effectTime > 1.5f)
-        {
-            dmgEffect.SetActive(false);
-            onhit = false;
-            effectTime = 0;
-        }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "ZombieAtk")
-        {
-            dmgEffect.SetActive(true);
-            onhit = true;
-        }
-    }
-    /*
-    [SerializeField]
-    private GameObject dmgEffect;
-    [SerializeField]
     private float fadeSpeed;
 
-    private Color rend;
+    private Image rend;
     [SerializeField]
     private bool onhit;
+    [SerializeField]
+    private float colorAlpha;
+
+    private AudioSource audio;
+
+    [SerializeField]
+    private AudioClip hit;
 
     private void Start()
     {
-        rend = dmgEffect.GetComponent<Image>().color;
-        rend.a = 0;
+        audio = gameObject.GetComponent<AudioSource>();
+        colorAlpha = 1;
+        rend = dmgEffect.GetComponent<Image>();
+        rend.color = new Color(255, 255, 255, 0);
         onhit = false;
     }
+
     private void Update()
-    {
-        Debug.Log(rend.a);
+    {        
         fadeOut();
     }
 
     void fadeOut()
     {
-        if(onhit && rend.a > 125)
+        if(onhit)
         {
-            rend.a -= fadeSpeed * Time.deltaTime;
-            Debug.Log("fadeout");
+            
+            colorAlpha -= fadeSpeed * Time.deltaTime;
+            rend.color = new Color(255, 255, 255, colorAlpha);
         }
 
-        if(onhit && rend.a <= 125)
+        if(rend.color.a < 0.5)
         {
+            rend.color = new Color(255, 255, 255, 0);
+            colorAlpha = 1.0f;
             onhit = false;
-            Debug.Log("fadeout");
-            rend.a = 0;
         }
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "ZombieAtk")
         {
-            Debug.Log("cndefdf");
-            rend.a = 255;
+            audio.clip = hit;
+            audio.Play();
+            rend.color = new Color(255, 255, 255, 1);
             onhit = true;
         }
-    }*/
+    }
 }

@@ -105,6 +105,8 @@
     <Compile Include="Assets\Scripts\Gun\GunStateScript.cs" />
     <Compile Include="Assets\Scripts\Gun\MuzzleFlashScript.cs" />
     <Compile Include="Assets\Scripts\Zombie\ZombieAtkScript.cs" />
+    <Compile Include="Assets\Scripts\Sound\ZombieSound.cs" />
+    <Compile Include="Assets\Scripts\MainScene\CamMove.cs" />
     <Compile Include="Assets\Scripts\UI\PlayerHpbarScript.cs" />
     <Compile Include="Assets\Scripts\UI\GrenadeSyringeUIScript.cs" />
     <Compile Include="Assets\Scripts\UI\stage1\SetUIPositionScript.cs" />
@@ -148,6 +150,7 @@
     <Compile Include="Assets\Scripts\Manager\GunManagerScript.cs" />
     <Compile Include="Assets\Scripts\Player\SetObj\CheckContactScript.cs" />
     <Compile Include="Assets\Scripts\Resource\GetWoodScript.cs" />
+    <Compile Include="Assets\Scripts\Player\Grenade\GrenadeSoundScript.cs" />
     <Compile Include="Assets\Scripts\UI\SafeHouseRadarScript.cs" />
     <Compile Include="Assets\Scripts\Zombie\ZombieRayScript.cs" />
     <Compile Include="Assets\Download_Assets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_Wall.cs" />
@@ -162,10 +165,13 @@
     <Compile Include="Assets\Scripts\Zombie\ZombieDamageScript.cs" />
     <Compile Include="Assets\Scripts\UI\stage1\GunNumUIScript.cs" />
     <Compile Include="Assets\Download_Assets\JMO Assets\WarFX\Spawn System\CFX_SpawnSystem.cs" />
+    <Compile Include="Assets\Scripts\Sound\StageSound.cs" />
     <Compile Include="Assets\Scripts\Player\SwapGunScript.cs" />
     <Compile Include="Assets\Scripts\Zombie\ZombieState.cs" />
     <Compile Include="Assets\Scripts\Zombie\ZombieSpwanScript.cs" />
-    <Compile Include="Assets\Scripts\MainScene\CamMove.cs" />
+    <Compile Include="Assets\Scripts\Upgrade\UpgradeInfo.cs" />
+    <Compile Include="Assets\Scripts\Upgrade\UpgradeScript.cs" />
+    <Compile Include="Assets\Scripts\Upgrade\SetUpgrade.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Download_Assets\JMO Assets\WarFX\Shaders\WFX_S Multiply Soft.shader" />

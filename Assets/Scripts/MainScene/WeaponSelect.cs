@@ -56,12 +56,14 @@ public class WeaponSelect : MonoBehaviour
         if(objNum == 0)
         {
             upgradeUI.SetActive(false);
+            mainCam.transform.position = new Vector3(5.5f, 2.5f, 0);
             mainCam.depth = 1;
         }
 
         else
         {
             upgradeUI.SetActive(true);
+            mainCam.transform.position = new Vector3(99, 2.5f, 0);
             mainCam.depth = -1;
         }
     }
@@ -92,10 +94,5 @@ public class WeaponSelect : MonoBehaviour
         {
             objNum = 6;
         }
-    }
-
-    void setUpgradeUI()
-    {
-
     }
 }
