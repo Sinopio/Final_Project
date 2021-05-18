@@ -13,5 +13,8 @@ public class UpgradeScript : MonoBehaviour
         Instance = this;
     }
 
-
+    private void Start()
+    {
+        DontDestroyOnLoad(this.gameObject);
+    }
 }

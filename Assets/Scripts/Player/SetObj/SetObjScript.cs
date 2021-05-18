@@ -52,6 +52,7 @@ public class SetObjScript : MonoBehaviour
             Cursor.lockState = CursorLockMode.Confined;
             playerMove.enabled = false;
             objNum = 0;
+            Time.timeScale = 0;
         }
 
         if (Input.GetKeyDown(KeyCode.N) && uiActive)
@@ -62,6 +63,7 @@ public class SetObjScript : MonoBehaviour
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
             playerMove.enabled = true;
+            Time.timeScale = 1;
         }
     }
 
@@ -114,7 +116,7 @@ public class SetObjScript : MonoBehaviour
              
                 if (Input.GetMouseButtonDown(0) && !checkContact.contact)
                 {
-                    Instantiate(explosiveObj, interactionObj.transform.position, Quaternion.identity);
+                    Instantiate(interactionObj, interactionObj.transform.position, Quaternion.identity);
                     objNum = 0;
                     mouseUi.SetActive(false);
                     PlayerState.Instance.money -= 500;
@@ -167,5 +169,16 @@ public class SetObjScript : MonoBehaviour
                 }
                 break;
         }
+    }
+
+    public void GetOut()
+    {
+        uiActive = false;
+        interactionObjUI.SetActive(false);
+        cursorManager.SetActive(true);
+        playerMove.enabled = true;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+        Time.timeScale = 1;
     }
 }

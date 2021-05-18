@@ -55,6 +55,7 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Upgrade\SaveLoadUpgrade.cs" />
     <Compile Include="Assets\Download_Assets\JMO Assets\WarFX\Demo\Assets\WFX_Demo.cs" />
     <Compile Include="Assets\Scripts\Player\Pistol\PistolAniSoundScript.cs" />
     <Compile Include="Assets\Download_Assets\JMO Assets\WarFX\Demo\Assets\CFX_Demo_Translate.cs" />
@@ -118,12 +119,15 @@
     <Compile Include="Assets\Download_Assets\JMO Assets\WarFX\Scripts\CFX_AutoDestructShuriken.cs" />
     <Compile Include="Assets\Scripts\Manager\MobManagerScript.cs" />
     <Compile Include="Assets\Download_Assets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_RandomDir.cs" />
+    <Compile Include="Assets\Scripts\Upgrade\UpgradeInfo.cs" />
     <Compile Include="Assets\Scripts\Manager\CursorMangerScript.cs" />
     <Compile Include="Assets\Scripts\Zombie\ZombieGetGrenadeDmgScript.cs" />
     <Compile Include="Assets\Scripts\Bullet\GetGunInfoScript.cs" />
     <Compile Include="Assets\Scripts\Scene\SceneScript.cs" />
     <Compile Include="Assets\Download_Assets\JMO Assets\WarFX\Scripts\CFX_LightIntensityFade.cs" />
     <Compile Include="Assets\Scripts\Resource\PaletHpScript.cs" />
+    <Compile Include="Assets\Scripts\Upgrade\SetUpgrade.cs" />
+    <Compile Include="Assets\Scripts\Upgrade\UpgradeScript.cs" />
     <Compile Include="Assets\Scripts\UI\ZombieNumScript.cs" />
     <Compile Include="Assets\Scripts\MainScene\ItemRotation.cs" />
     <Compile Include="Assets\Scripts\Item\BombEffectScript.cs" />
@@ -168,10 +172,9 @@
     <Compile Include="Assets\Scripts\Sound\StageSound.cs" />
     <Compile Include="Assets\Scripts\Player\SwapGunScript.cs" />
     <Compile Include="Assets\Scripts\Zombie\ZombieState.cs" />
+    <Compile Include="Assets\Scripts\Scene\GameSceneManager.cs" />
     <Compile Include="Assets\Scripts\Zombie\ZombieSpwanScript.cs" />
-    <Compile Include="Assets\Scripts\Upgrade\UpgradeInfo.cs" />
-    <Compile Include="Assets\Scripts\Upgrade\UpgradeScript.cs" />
-    <Compile Include="Assets\Scripts\Upgrade\SetUpgrade.cs" />
+    <Compile Include="Assets\Scripts\UI\stage1\GameGoal.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Download_Assets\JMO Assets\WarFX\Shaders\WFX_S Multiply Soft.shader" />

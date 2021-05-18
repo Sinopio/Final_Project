@@ -15,9 +15,6 @@ public class PlayerState : MonoBehaviour
     public int money;
     public float speed;
 
-
-    private float recoveryTime = 0;
-
     private void Awake()
     {
         Instance = this;
@@ -29,31 +26,20 @@ public class PlayerState : MonoBehaviour
         playerMove = gameObject.GetComponent<PlayerMove>();
         medikitNum = 100;
         invenNum = 3;
+        applyPlayerUpgrade();
+    }
+
+
+    void applyPlayerUpgrade()
+    {
+        Hp += UpgradeScript.Instance.deck[5].nowUpgrade1 * 20;
+        MaxHp += UpgradeScript.Instance.deck[5].nowUpgrade1 * 20;
+        speed += UpgradeScript.Instance.deck[5].nowUpgrade2 * 1;
     }
 
     private void Update()
     {
-        recoveryHp();
         setInven();
-    }
-
-    void recoveryHp()
-    {
-        if(Hp < 80 && Input.GetKey(KeyCode.E) && invenNum == 4)
-        {
-            recoveryTime += Time.deltaTime;
-            if(recoveryTime < 3.0f)
-            {
-                speed = 2.0f;
-            }
-            else if (recoveryTime > 3.0f)
-            {
-                Hp = 80;
-                speed = 7.0f;
-                medikitNum--;
-                recoveryTime = 0;
-            }
-        }
     }
 
     void setInven()

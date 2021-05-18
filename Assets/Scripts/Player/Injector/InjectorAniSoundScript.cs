@@ -8,6 +8,8 @@ public class InjectorAniSoundScript : MonoBehaviour
     private AudioSource audio;
 
     [SerializeField]
+    private float recoveryHp;
+    [SerializeField]
     private AudioClip treatStart;
     [SerializeField]
     private AudioClip treatEnd;
@@ -19,6 +21,7 @@ public class InjectorAniSoundScript : MonoBehaviour
         animator = gameObject.GetComponent<Animator>();
         audio = gameObject.AddComponent<AudioSource>();
         audio.loop = false;
+        applyInjectionUpgrade();
     }
 
     void OnDisable()
@@ -30,6 +33,11 @@ public class InjectorAniSoundScript : MonoBehaviour
     {
         TreatDelay();
         InjectorAni();
+    }
+
+    void applyInjectionUpgrade()
+    {
+        recoveryHp = 5 + UpgradeScript.Instance.deck[4].nowUpgrade1 * 5;
     }
 
     void InjectorAni()
@@ -52,7 +60,7 @@ public class InjectorAniSoundScript : MonoBehaviour
         {
             if(treatTime > 1.0f)
             {
-                PlayerState.Instance.Hp += 5;
+                PlayerState.Instance.Hp += recoveryHp;
                 PlayerState.Instance.medikitNum -= 5;
                 treatTime = 0f;
             }

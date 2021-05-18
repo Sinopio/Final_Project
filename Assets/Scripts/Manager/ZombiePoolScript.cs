@@ -12,6 +12,7 @@ public class ZombiePoolScript : MonoBehaviour
     [SerializeField]
     private int dropMoney;
     private Vector3 position;
+    public int deadNum;
 
     Queue<GameObject> zombiePoolQueue = new Queue<GameObject>();
 
@@ -52,6 +53,7 @@ public class ZombiePoolScript : MonoBehaviour
         Obj.transform.SetParent(Instance.transform);
         Instance.zombiePoolQueue.Enqueue(Obj);
         PlayerState.Instance.money += dropMoney;
+        deadNum++;
     }
 
     public void setPosition(Vector3 _position)

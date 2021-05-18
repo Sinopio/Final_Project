@@ -52,6 +52,7 @@ public class ShopScript : MonoBehaviour
             playerMove.enabled = false;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;
+            Time.timeScale = 0;
         }
 
         if (Input.GetKeyDown(KeyCode.N) && uiActive)
@@ -62,6 +63,7 @@ public class ShopScript : MonoBehaviour
             playerMove.enabled = true;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
+            Time.timeScale = 1;
         }
     }
 
@@ -125,6 +127,7 @@ public class ShopScript : MonoBehaviour
         playerMove.enabled = true;
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        Time.timeScale = 1;
     }
 
     public void enterBuyRifleBullet()

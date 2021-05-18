@@ -12,6 +12,12 @@ public class ZombieGetGrenadeDmgScript : MonoBehaviour
     private void Start()
     {
         zombieState = zombie.GetComponent<ZombieState>();
+        applyGrenadeUpgrade();
+    }
+
+    void applyGrenadeUpgrade()
+    {
+        GrenadeDmg += UpgradeScript.Instance.deck[3].nowUpgrade1 * 100;
     }
 
     private void OnTriggerEnter(Collider other)
