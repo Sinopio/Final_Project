@@ -62,6 +62,14 @@ public class SwapGunScript : MonoBehaviour
                 Grenade.SetActive(false);
                 Injector.SetActive(true);
                 break;
+            case 50:
+                Knife.SetActive(false);
+                Rifle.SetActive(false);
+                Shotgun.SetActive(false);
+                Pistol.SetActive(false);
+                Grenade.SetActive(false);
+                Injector.SetActive(false);
+                break;
         }
     }
 }

@@ -58,6 +58,7 @@ public class DamageEffectScript : MonoBehaviour
         {
             audio.clip = hit;
             audio.Play();
+            PlayerState.Instance.Hp -= 5;
             rend.color = new Color(255, 255, 255, 1);
             onhit = true;
         }

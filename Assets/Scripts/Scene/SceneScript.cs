@@ -96,4 +96,9 @@ public class SceneScript : MonoBehaviour
             SceneManager.LoadScene(3);
         }
     }
+
+    public void StartTutorial()
+    {
+        SceneManager.LoadScene(5);
+    }
 }

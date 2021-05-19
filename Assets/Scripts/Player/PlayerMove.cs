@@ -6,8 +6,7 @@ public class PlayerMove : MonoBehaviour
 {
     [SerializeField]
     private float jumpRange;
-    [SerializeField]
-    private float rotateSpeed;
+    public float rotateSpeed;
     [SerializeField]
     private float cameraRotationLimit;
 
