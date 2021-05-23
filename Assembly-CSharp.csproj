@@ -85,6 +85,7 @@
     <Compile Include="Assets\Scripts\UI\Billboard.cs" />
     <Compile Include="Assets\Download_Assets\EffectExamples\Shared\Scripts\ParticleMenu.cs" />
     <Compile Include="Assets\Scripts\Manager\GunInfo.cs" />
+    <Compile Include="Assets\Scripts\Tutorial\FinalTuto.cs" />
     <Compile Include="Assets\Scripts\ObjExplosionScript.cs" />
     <Compile Include="Assets\Scripts\Zombie\ZombieSmellRangeScript.cs" />
     <Compile Include="Assets\Download_Assets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_New.cs" />
@@ -112,13 +113,16 @@
     <Compile Include="Assets\Scripts\UI\GrenadeSyringeUIScript.cs" />
     <Compile Include="Assets\Scripts\UI\stage1\SetUIPositionScript.cs" />
     <Compile Include="Assets\Download_Assets\EffectExamples\Shared\Scripts\GunAim.cs" />
+    <Compile Include="Assets\Scripts\Tutorial\GrenadeTuto.cs" />
     <Compile Include="Assets\Download_Assets\JMO Assets\WarFX\Demo\Assets\CFX_Demo_RandomDir.cs" />
     <Compile Include="Assets\Download_Assets\SMC Pack 1\Demo\DemoAssets\V_Text.cs" />
     <Compile Include="Assets\Download_Assets\JMO Assets\WarFX\Demo\Assets\CFX_Demo_RotateCamera.cs" />
     <Compile Include="Assets\Scripts\Effect\PutBloodEffectScript.cs" />
+    <Compile Include="Assets\Scripts\Tutorial\InjectionTuto.cs" />
     <Compile Include="Assets\Scripts\Tutorial\TutorialText.cs" />
     <Compile Include="Assets\Download_Assets\JMO Assets\WarFX\Scripts\CFX_AutoDestructShuriken.cs" />
     <Compile Include="Assets\Scripts\Manager\MobManagerScript.cs" />
+    <Compile Include="Assets\Scripts\Tutorial\TutoText.cs" />
     <Compile Include="Assets\Download_Assets\JMO Assets\WarFX\Demo\Assets\WFX_Demo_RandomDir.cs" />
     <Compile Include="Assets\Scripts\Upgrade\UpgradeInfo.cs" />
     <Compile Include="Assets\Scripts\Manager\CursorMangerScript.cs" />
@@ -173,14 +177,10 @@
     <Compile Include="Assets\Download_Assets\JMO Assets\WarFX\Spawn System\CFX_SpawnSystem.cs" />
     <Compile Include="Assets\Scripts\Sound\StageSound.cs" />
     <Compile Include="Assets\Scripts\Player\SwapGunScript.cs" />
+    <Compile Include="Assets\Scripts\Tutorial\ShotTuto.cs" />
     <Compile Include="Assets\Scripts\Zombie\ZombieState.cs" />
     <Compile Include="Assets\Scripts\Scene\GameSceneManager.cs" />
     <Compile Include="Assets\Scripts\Zombie\ZombieSpwanScript.cs" />
-    <Compile Include="Assets\Scripts\Tutorial\TutoText.cs" />
-    <Compile Include="Assets\Scripts\Tutorial\ShotTuto.cs" />
-    <Compile Include="Assets\Scripts\Tutorial\GrenadeTuto.cs" />
-    <Compile Include="Assets\Scripts\Tutorial\InjectionTuto.cs" />
-    <Compile Include="Assets\Scripts\Tutorial\FinalTuto.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\Download_Assets\JMO Assets\WarFX\Shaders\WFX_S Multiply Soft.shader" />
