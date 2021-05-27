@@ -11,7 +11,9 @@ public class ZombiePoolScript : MonoBehaviour
     private GameObject zombiePrefab;
     [SerializeField]
     private int dropMoney;
-    private Vector3 position;
+
+    private Vector3 myposition;
+
     public int deadNum;
 
     Queue<GameObject> zombiePoolQueue = new Queue<GameObject>();
@@ -40,9 +42,9 @@ public class ZombiePoolScript : MonoBehaviour
         }
 
         obj = Instance.zombiePoolQueue.Dequeue();
+        obj.transform.position = myposition;
         obj.SetActive(true);
-        obj.transform.SetParent(null);
-        obj.transform.position = position;
+        obj.transform.SetParent(null);    
 
         return obj;
     }
@@ -52,12 +54,15 @@ public class ZombiePoolScript : MonoBehaviour
         Obj.SetActive(false);
         Obj.transform.SetParent(Instance.transform);
         Instance.zombiePoolQueue.Enqueue(Obj);
-        PlayerState.Instance.money += dropMoney;
-        deadNum++;
+        if(PlayerState.Instance.Hp > 0)
+        {
+            PlayerState.Instance.money += dropMoney;
+            deadNum++;
+        }        
     }
 
     public void setPosition(Vector3 _position)
     {
-        position = _position;
+        myposition = _position;
     }
 }

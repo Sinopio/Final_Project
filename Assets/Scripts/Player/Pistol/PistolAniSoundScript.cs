@@ -35,13 +35,17 @@ public class PistolAniSoundScript : MonoBehaviour
 
     private void Update()
     {
-        PistolAni();
-        ReloadPistol();
-        ShotPistol();
+        if (PlayerState.Instance.isUION == false)
+        {
+            PistolAni();
+            ReloadPistol();
+            ShotPistol();
+        }   
     }
 
     void PistolAni()
     {
+        audio.volume = UpgradeScript.Instance.soundValue;
         float X_move = Input.GetAxisRaw("Horizontal");
         float Z_move = Input.GetAxisRaw("Vertical");
 

@@ -5,14 +5,13 @@ using UnityEngine.UI;
 
 public class UpgradeUI : MonoBehaviour
 {
-    [SerializeField]
     private GameObject upgradeManagerObj;
     [SerializeField]
     private GameObject UI1;
     [SerializeField]
     private GameObject UI2;
 
-    private WeaponSelect weaponSelect;
+    private SelUpgrade selUpgrade;
     private UpgradeScript upgradeScript;
 
     [SerializeField]
@@ -44,7 +43,8 @@ public class UpgradeUI : MonoBehaviour
 
     private void Start()
     {
-        weaponSelect = gameObject.GetComponent<WeaponSelect>();
+        upgradeManagerObj = GameObject.Find("UpgradeManager");
+        selUpgrade = gameObject.GetComponent<SelUpgrade>();
         upgradeScript = upgradeManagerObj.GetComponent<UpgradeScript>();
     }
 
@@ -56,7 +56,8 @@ public class UpgradeUI : MonoBehaviour
     void setUi()
     {
         moneyText.text = upgradeScript.money.ToString();
-        switch (weaponSelect.objNum)
+
+        switch (selUpgrade.objNum)
         {
             case 1://라이플
                 //총 데미지
@@ -199,7 +200,7 @@ public class UpgradeUI : MonoBehaviour
 
     public void Upgrade1()
     {
-        switch (weaponSelect.objNum)
+        switch (selUpgrade.objNum)
         {
             case 1:
                 if (upgradeScript.money >= 1000
@@ -265,7 +266,7 @@ public class UpgradeUI : MonoBehaviour
 
     public void Upgrade2()
     {
-        switch (weaponSelect.objNum)
+        switch (selUpgrade.objNum)
         {
             case 1:
                 if (upgradeScript.money >= 500

@@ -42,12 +42,12 @@ public class AmmoScript : MonoBehaviour
                 break;
 
             case 10:
-                ammoText.text = " - ";
+                ammoText.text = PlayerState.Instance.grenadeNum.ToString();
                 ammoFullText.text = " - ";
                 break;
 
             case 11:
-                ammoText.text = " - ";
+                ammoText.text = PlayerState.Instance.medikitNum.ToString();
                 ammoFullText.text = " - ";
                 break;
         }

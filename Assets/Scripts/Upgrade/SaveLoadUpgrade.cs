@@ -51,7 +51,11 @@ public class SaveLoadUpgrade : MonoBehaviour
             PlayerPrefs.SetFloat("PlayerUp1", 0);
             PlayerPrefs.SetFloat("PlayerUp2", 0);
             //돈
-            PlayerPrefs.SetInt("Money", 100000);
+            PlayerPrefs.SetInt("Money", 3000);
+
+            PlayerPrefs.SetFloat("BgmValue", 0.5f);
+            PlayerPrefs.SetFloat("SoundValue", 0.5f);
+            PlayerPrefs.SetFloat("RotateValue", 0.5f);
         }
 
         else if (PlayerPrefs.HasKey("RifleUp1"))
@@ -80,6 +84,10 @@ public class SaveLoadUpgrade : MonoBehaviour
         //돈
         PlayerPrefs.SetInt("Money", UpgradeScript.Instance.money);
 
+        PlayerPrefs.SetFloat("BgmValue", UpgradeScript.Instance.bgmValue);
+        PlayerPrefs.SetFloat("SoundValue", UpgradeScript.Instance.soundValue);
+        PlayerPrefs.SetFloat("RotateValue", UpgradeScript.Instance.rotateValue);
+
         PlayerPrefs.Save();
     }
 
@@ -101,6 +109,9 @@ public class SaveLoadUpgrade : MonoBehaviour
         UpgradeScript.Instance.deck[5].nowUpgrade2 = PlayerPrefs.GetFloat("PlayerUp2");
         //돈
         UpgradeScript.Instance.money = PlayerPrefs.GetInt("Money");
+        UpgradeScript.Instance.soundValue = PlayerPrefs.GetFloat("BgmValue");
+        UpgradeScript.Instance.soundValue = PlayerPrefs.GetFloat("SoundValue");
+        UpgradeScript.Instance.rotateValue = PlayerPrefs.GetFloat("RotateValue");
     }
 
     void InitSave()
@@ -120,7 +131,11 @@ public class SaveLoadUpgrade : MonoBehaviour
         PlayerPrefs.SetFloat("PlayerUp1", 0);
         PlayerPrefs.SetFloat("PlayerUp2", 0);
         //돈
-        PlayerPrefs.SetInt("Money", 100000);
+        PlayerPrefs.SetInt("Money", 3000);
+
+        PlayerPrefs.SetFloat("BgmValue", 0.5f);
+        PlayerPrefs.SetFloat("SoundValue", 0.5f);
+        PlayerPrefs.SetFloat("RotateValue", 0.5f);
 
         PlayerPrefs.Save();
     }

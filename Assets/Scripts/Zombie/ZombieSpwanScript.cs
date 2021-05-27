@@ -24,6 +24,10 @@ public class ZombieSpwanScript : MonoBehaviour
     [SerializeField]
     private GameObject paletPosition;
 
+    private float randx;
+    private float randz;
+    private Transform position;
+
     private void Start()
     {
         paletNum = 0;
@@ -32,9 +36,12 @@ public class ZombieSpwanScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        randx = Random.Range(minX, maxX);
+        randz = Random.Range(minZ, maxZ);
         if (checkTime() && paletNum <= maxZombie)
         {
-            paletPosition.transform.position = new Vector3(Random.Range(minX, maxX), 0.55f, Random.Range(minZ, maxZ));
+            paletPosition.transform.position = new Vector3(randx, 0.55f, randz);
+            //paletPosition.transform.position = new Vector3(Random.Range(minX, maxX), 0.55f, Random.Range(minZ, maxZ));
             ZombiePoolScript.Instance.setPosition(paletPosition.transform.position);
             ZombiePoolScript.Instance.GetZombieObject();
             paletNum++;

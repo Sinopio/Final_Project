@@ -23,6 +23,9 @@ public class ThrowBombScript : MonoBehaviour
     [SerializeField]
     private GameObject targetSphere;
 
+    [SerializeField]
+    private GameObject grenadeObj;
+
     private Transform myTransform;
     private float elapse_time;
     private float flightDuration;
@@ -64,7 +67,7 @@ public class ThrowBombScript : MonoBehaviour
             isthrow = true;
 
             PlayerState.Instance.grenadeNum--;
-
+            grenadeObj.SetActive(true);
             Obj.position = myTransform.position + new Vector3(0, 0.0f, 0);
 
             targetDistance = Vector3.Distance(Obj.position, target.transform.position);
@@ -93,6 +96,7 @@ public class ThrowBombScript : MonoBehaviour
         if (elapse_time > flightDuration && isthrow)
         {
             isthrow = false;
+            grenadeObj.SetActive(false);
             Instantiate(effect, gameObject.transform.position, Quaternion.identity);
             setBombScript.isSet = false;
             gameObject.SetActive(false);
@@ -104,6 +108,10 @@ public class ThrowBombScript : MonoBehaviour
         if (PlayerState.Instance.invenNum == 10 && Input.GetMouseButton(0))
         {
             target.transform.Translate(Vector3.forward * Time.deltaTime*10);
+        }
+        if (PlayerState.Instance.invenNum != 10)
+        {
+            target.transform.position = gPosition.transform.position;
         }
     }
 
@@ -119,5 +127,6 @@ public class ThrowBombScript : MonoBehaviour
             parabola.SetActive(false);
             targetSphere.SetActive(false);
         }
+        
     }
 }

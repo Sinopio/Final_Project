@@ -22,6 +22,8 @@ public class TutoText : MonoBehaviour
     private PlayerMove playerMove;
     [SerializeField]
     private GameObject player;
+    [SerializeField]
+    private GameObject tutoObj;
 
 
     private bool textExit;
@@ -55,14 +57,16 @@ public class TutoText : MonoBehaviour
         if(cnt < 4)
         {
             playerMove.rotateSpeed = 0;
+            tutoObj.SetActive(false);
+            PlayerState.Instance.isUION = true;
         }
-        if (cnt >= 4)
+        if (cnt == 4)
         {
             playerMove.rotateSpeed = 10;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
+            tutoObj.SetActive(true);
         }
-
     }
 
     public void EndTyping()
@@ -123,6 +127,7 @@ public class TutoText : MonoBehaviour
                 this.GetComponent<Text>().text = currentText;
                 yield return new WaitForSeconds(delay);
             }
+
             //탈출시 모든 문자출력
             Debug.Log("Typing 종료");
             this.GetComponent<Text>().text = _tutoText[cnt];

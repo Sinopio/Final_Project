@@ -14,6 +14,10 @@ public class PlayerState : MonoBehaviour
     public int invenNum;
     public int money;
     public float speed;
+    public bool isUION;
+
+    public bool stage3_supplies;
+    public bool stage3_questArea;
 
     private void Awake()
     {
@@ -22,10 +26,14 @@ public class PlayerState : MonoBehaviour
 
     private void Start()
     {
+        Time.timeScale = 1;
         money = 0;
         playerMove = gameObject.GetComponent<PlayerMove>();
         medikitNum = 100;
         invenNum = 3;
+        isUION = false;
+        stage3_supplies = false;
+        stage3_questArea = false;
         applyPlayerUpgrade();
     }
 
@@ -63,6 +71,32 @@ public class PlayerState : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.H))
         {
             invenNum = 11;
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Supplies")
+        {
+            stage3_supplies = true;
+        }
+
+        if(other.tag == "QuestArea")
+        {
+            stage3_questArea = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Supplies")
+        {
+            stage3_supplies = false;
+        }
+
+        if (other.tag == "QuestArea")
+        {
+            stage3_questArea = false;
         }
     }
 }

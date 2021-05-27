@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SetObjScript : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class SetObjScript : MonoBehaviour
     [SerializeField]
     private GameObject explosiveObj;
     [SerializeField]
+    private GameObject explosiveObjPrefabs;
+    [SerializeField]
     private GameObject blockObj;
     [SerializeField]
     private Transform objPosition;
@@ -27,8 +30,17 @@ public class SetObjScript : MonoBehaviour
     private bool uiActive;
     private int objNum;
 
+    [SerializeField]
+    private Text shopInfo;
+
+    private ShopScript shopScript;
+    [SerializeField]
+    private GameObject shopManager;
+
     private void Start()
     {
+        mouseUi.SetActive(false);
+        shopScript = shopManager.GetComponent<ShopScript>();
         playerMove = player.GetComponent<PlayerMove>();
         objNum = 0;
         interactionObjUI.SetActive(false);
@@ -37,7 +49,7 @@ public class SetObjScript : MonoBehaviour
 
     private void Update()
     {
-        setBuildUI();
+        //setBuildUI();
         setObj();
     }
 
@@ -70,40 +82,65 @@ public class SetObjScript : MonoBehaviour
     //메뉴에서 버튼을 눌렀을때
     public void selectExplosive()
     {
-        //explosiveObj.SetActive(true);
-        uiActive = false;
-        interactionObjUI.SetActive(false);
+        if (PlayerState.Instance.money >= 300)
+        {
+            //explosiveObj.SetActive(true);
+            shopScript.uiActive = false;
+            interactionObjUI.SetActive(false);
 
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        Debug.Log("set Explosive Obj");
-        objNum = 1;
-        playerMove.enabled = true;
-        mouseUi.SetActive(true);
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            Debug.Log("set Explosive Obj");
+
+            objNum = 1;
+            playerMove.enabled = true;
+            mouseUi.SetActive(true);
+
+            PlayerState.Instance.isUION = false;
+
+            Time.timeScale = 1;
+        }
+        else if (PlayerState.Instance.money < 300)
+        {
+            shopInfo.text = "보유한 돈이 부족합니다.";
+        }
     }
 
     public void selectBlock()
     {
-        //explosiveObj.SetActive(true);
-        uiActive = false;
-        interactionObjUI.SetActive(false);
+        if (PlayerState.Instance.money >= 500)
+        {
+            shopScript.uiActive = false;
+            interactionObjUI.SetActive(false);
 
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
-        Debug.Log("set Block Obj");
-        objNum = 2;
-        playerMove.enabled = true;
-        mouseUi.SetActive(true);
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+            Debug.Log("set Block Obj");
+
+            objNum = 2;
+            playerMove.enabled = true;
+            mouseUi.SetActive(true);
+
+            PlayerState.Instance.isUION = false;
+
+            Time.timeScale = 1;
+        }
+        else if (PlayerState.Instance.money < 500)
+        {
+            shopInfo.text = "보유한 돈이 부족합니다.";
+        }
     }
 
     void setObj()
     {
-        switch(objNum)
+        switch (objNum)
         {
             case 0:
                 interactionObj = null;
                 break;
+
             case 1:
+                PlayerState.Instance.invenNum = 3;
                 interactionObj = explosiveObj;
                 interactionObj.SetActive(true);
                 interactionObj.transform.position = new Vector3(objPosition.position.x, 0.55f, objPosition.position.z);
@@ -113,16 +150,17 @@ public class SetObjScript : MonoBehaviour
                 {
                     Debug.Log("충돌!");
                 }
-             
+
                 if (Input.GetMouseButtonDown(0) && !checkContact.contact)
                 {
-                    Instantiate(interactionObj, interactionObj.transform.position, Quaternion.identity);
+                    Instantiate(explosiveObjPrefabs, interactionObj.transform.position, Quaternion.identity);
+                    interactionObj.SetActive(false);
                     objNum = 0;
                     mouseUi.SetActive(false);
                     PlayerState.Instance.money -= 500;
                 }
 
-                if(Input.GetMouseButtonDown(1))
+                if (Input.GetMouseButtonDown(1))
                 {
                     objNum = 0;
                     explosiveObj.SetActive(false);
@@ -137,6 +175,7 @@ public class SetObjScript : MonoBehaviour
                 break;
 
             case 2:
+                PlayerState.Instance.invenNum = 3;
                 interactionObj = blockObj;
                 interactionObj.SetActive(true);
                 interactionObj.transform.position = new Vector3(objPosition.position.x, 0.55f, objPosition.position.z);
@@ -150,6 +189,7 @@ public class SetObjScript : MonoBehaviour
                 if (Input.GetMouseButtonDown(0) && !checkContact.contact)
                 {
                     Instantiate(blockObj, interactionObj.transform.position, Quaternion.identity);
+                    interactionObj.SetActive(false);
                     objNum = 0;
                     mouseUi.SetActive(false);
                     PlayerState.Instance.money -= 500;

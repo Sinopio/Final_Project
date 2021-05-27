@@ -87,14 +87,11 @@ public class ZombieAnimation : MonoBehaviour
 
     void UpdateZombieSound()
     {
+        audio.volume = UpgradeScript.Instance.soundValue;
         switch (state.zombieState)
         {
             case 0: // Idle
                 audio.clip = birth;
-                audio.Play();
-                break;
-            case 1: // inRay
-                audio.clip = angry;
                 audio.Play();
                 break;
             case 2: // Atk
@@ -119,6 +116,11 @@ public class ZombieAnimation : MonoBehaviour
     {
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Z_FallingBack")
             && animator.GetCurrentAnimatorStateInfo(0).normalizedTime >= 1f)
+        {
+            ZombiePoolScript.Instance.PutZombieObject(gameObject);
+        }
+
+        if(PlayerState.Instance.Hp <= 0)
         {
             ZombiePoolScript.Instance.PutZombieObject(gameObject);
         }

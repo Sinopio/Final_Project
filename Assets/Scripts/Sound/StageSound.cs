@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class StageSound : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private AudioSource audio;
+
+    private void Start()
     {
-        
+        audio = gameObject.GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        
+        setBgm();
+    }
+
+    void setBgm()
+    {
+        audio.volume = UpgradeScript.Instance.bgmValue;
     }
 }

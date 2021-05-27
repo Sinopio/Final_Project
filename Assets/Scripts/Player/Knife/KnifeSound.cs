@@ -27,16 +27,19 @@ public class KnifeSound : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Alpha3) && PlayerState.Instance.invenNum != 3)
+        if (PlayerState.Instance.isUION == false)
         {
-            audio.clip = firstSound;
-            audio.Play();
-        }
+            if (Input.GetKeyDown(KeyCode.Alpha3) && PlayerState.Instance.invenNum != 3)
+            {
+                audio.clip = firstSound;
+                audio.Play();
+            }
 
-        if (PlayerState.Instance.invenNum == 3 && Input.GetMouseButton(0) && !checkAni.checkAtk)
-        {
-            audio.clip = atkSound;
-            audio.Play();
+            if (PlayerState.Instance.invenNum == 3 && Input.GetMouseButton(0) && !checkAni.checkAtk)
+            {
+                audio.clip = atkSound;
+                audio.Play();
+            }
         }
     }
 }

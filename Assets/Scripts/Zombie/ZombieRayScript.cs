@@ -36,7 +36,7 @@ public class ZombieRayScript : MonoBehaviour
             if (Physics.Raycast(transform.position, transform.forward, out raycastHit, rayLength))
             {
                 //Debug.Log(raycastHit.collider.name);
-                if(raycastHit.collider.tag == "Player")
+                if(raycastHit.collider.tag == "Player" || raycastHit.collider.tag == "Generator" || raycastHit.collider.tag == "Zombie")
                 {
                     inSight = true;
                 }

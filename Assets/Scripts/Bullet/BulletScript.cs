@@ -38,5 +38,6 @@ public class BulletScript : MonoBehaviour
             //BloodEffectPoolScript.Instance.GetEffect();
             BulletPoolScript.Instance.PutBullet(gameObject);
         }
+        Debug.Log(other.name);
     }
 }

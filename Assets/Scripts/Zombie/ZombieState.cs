@@ -28,13 +28,14 @@ public class ZombieState : MonoBehaviour
     public int zombieState;
     // 몬스터의 갯수를 확인할 변수
     public static int zombieCount = 0;
-
+    [SerializeField]
     private float p_zDis;
 
     private MobManagerScript manager;
     private ZombieRayScript zombieRayScript;
     private ZombieSoundRangeScript zombieSoundRange;
     private ZombieSmellRangeScript zombieSmellRange;
+    private bool withGenerator;
     /*private ZombieSectorScript zombieSectorScript;
     private ZombieSoundSectorScript zombieSoundSectorScript;*/
 
@@ -45,13 +46,16 @@ public class ZombieState : MonoBehaviour
 
     private void OnDisable()
     {
-        zombieCount++;
-        //Debug.Log("소멸 >> " + zombieCount);
-        manager = mobManager.GetComponent<MobManagerScript>();
-        stateHp = manager.deck[mobNumber].mobHp;
-        stateDmg = manager.deck[mobNumber].mobDmg;
-        stateSpeed = manager.deck[mobNumber].mobSpeed;
-        zombieState = 0;
+        if(manager != null && PlayerState.Instance.Hp > 0)
+        {
+            zombieCount++;
+            //Debug.Log("소멸 >> " + zombieCount);
+            manager = mobManager.GetComponent<MobManagerScript>();
+            stateHp = manager.deck[mobNumber].mobHp;
+            stateDmg = manager.deck[mobNumber].mobDmg;
+            stateSpeed = manager.deck[mobNumber].mobSpeed;
+            zombieState = 0;
+        }        
     }
 
     private void Start()
@@ -74,6 +78,7 @@ public class ZombieState : MonoBehaviour
 
     void setState()
     {
+
         p_zDis = Vector3.Distance(player.transform.position, gameObject.transform.position);
         if (stateHp <= 0)
         {
@@ -87,7 +92,7 @@ public class ZombieState : MonoBehaviour
         {
             zombieState = 1;
         }
-        else if (zombieRayScript.inSight && p_zDis < 2f)
+        else if (zombieRayScript.inSight || withGenerator && p_zDis < 2f)
         {
             zombieState = 2;
         }
@@ -98,6 +103,22 @@ public class ZombieState : MonoBehaviour
         else if (!zombieRayScript.inSight && !zombieSmellRange.inSmellRange && zombieSoundRange.inSoundRange)
         {
             zombieState = 4;
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.tag == "Generator")
+        {
+            withGenerator = true;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Generator")
+        {
+            withGenerator = false;
         }
     }
 }

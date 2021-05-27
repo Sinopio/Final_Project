@@ -43,7 +43,8 @@ public class PlayerMove : MonoBehaviour
     private void Rotate()
     {
         float _rotate = Input.GetAxisRaw("Mouse X");
-        Vector3 player_rotaion = new Vector3(0.0f, _rotate, 0.0f) * rotateSpeed;
+        Vector3 player_rotaion = new Vector3(0.0f, _rotate, 0.0f) * rotateSpeed
+            * UpgradeScript.Instance.rotateValue;
         rig.MoveRotation(rig.rotation * Quaternion.Euler(player_rotaion));
     }
 
@@ -51,12 +52,10 @@ public class PlayerMove : MonoBehaviour
     private void RotateCamera()
     {
         float _xRotation = Input.GetAxisRaw("Mouse Y");
-        float _cameraRotationX = _xRotation * rotateSpeed;
+        float _cameraRotationX = _xRotation * rotateSpeed * UpgradeScript.Instance.rotateValue;
         camerRotation -= _cameraRotationX;
         camerRotation = Mathf.Clamp(camerRotation, -cameraRotationLimit, cameraRotationLimit);
 
         myCamera.transform.localEulerAngles = new Vector3(camerRotation, 0f, 0f);
-        //bulletPosition.transform.localEulerAngles = new Vector3(camerRotation, 0f, 0f);
-        //gun.transform.localEulerAngles = new Vector3(camerRotation, 0f, 0f);
     }
 }

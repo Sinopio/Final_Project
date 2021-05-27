@@ -42,7 +42,8 @@ public class InjectorAniSoundScript : MonoBehaviour
 
     void InjectorAni()
     {
-        if(Input.GetMouseButtonDown(0))
+        audio.volume = UpgradeScript.Instance.soundValue;
+        if (Input.GetMouseButtonDown(0))
         {
             animator.SetBool("TreatStart", true);
             audio.clip = treatStart;
@@ -58,7 +59,7 @@ public class InjectorAniSoundScript : MonoBehaviour
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("InjectionIdle") &&
             Input.GetMouseButton(0))
         {
-            if(treatTime > 1.0f)
+            if(treatTime > 1.0f && PlayerState.Instance.Hp < PlayerState.Instance.MaxHp)
             {
                 PlayerState.Instance.Hp += recoveryHp;
                 PlayerState.Instance.medikitNum -= 5;

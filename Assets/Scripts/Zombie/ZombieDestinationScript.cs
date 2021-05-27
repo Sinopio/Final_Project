@@ -35,6 +35,11 @@ public class ZombieDestinationScript : MonoBehaviour
 
     void movePosition()
     {
+        if(player.name == "Generator")
+        {
+            gameObject.transform.position = player.transform.position;
+            zombieState.zombieState = 1;
+        }
         switch (zombieState.zombieState)
         {
             case 1: // inRay

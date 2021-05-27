@@ -1324,6 +1324,9 @@ MonoBehaviour:
   invenNum: 0
   money: 0
   speed: 5
+  isUION: 0
+  stage3_supplies: 0
+  stage3_questArea: 0
 --- !u!114 &158334431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5428,12 +5431,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b803c79e415738f4687901412394ae9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rifleOn: {fileID: 1748963294}
-  rifleOff: {fileID: 1260101293}
-  pistolOn: {fileID: 1339015752}
-  pistolOff: {fileID: 32866615}
-  knifeOn: {fileID: 1553382956}
-  knifeOff: {fileID: 1474778058}
+  rifle: {fileID: 0}
+  pistol: {fileID: 0}
+  knife: {fileID: 0}
+  grenade: {fileID: 0}
+  injection: {fileID: 0}
 --- !u!1 &728129980
 GameObject:
   m_ObjectHideFlags: 0
@@ -12891,8 +12893,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resultUI: {fileID: 447892273}
+  resultText: {fileID: 0}
   deadZombieNum: {fileID: 705349357}
   getMoney: {fileID: 616028142}
+  goalReward: {fileID: 0}
+  questNum: {fileID: 0}
+  goalNum: {fileID: 0}
+  stageGoal: 0
+  questUI: {fileID: 0}
+  cursurManager: {fileID: 0}
 --- !u!1 &1485949691
 GameObject:
   m_ObjectHideFlags: 0
@@ -13180,7 +13189,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 19823d7ced344a94cae2062e021ee4ff, type: 3}
 --- !u!4 &1508542295 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 2588179670645138429, guid: 19823d7ced344a94cae2062e021ee4ff, type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 1508542294}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1533062771
@@ -13326,6 +13335,7 @@ MonoBehaviour:
   gunmanager: {fileID: 1485949691}
   playerMoney: {fileID: 1687283316}
   shopInfo: {fileID: 2076492088}
+  uiActive: 0
 --- !u!1 &1536818562
 GameObject:
   m_ObjectHideFlags: 0
@@ -16678,9 +16688,12 @@ MonoBehaviour:
   interactionObj: {fileID: 0}
   player: {fileID: 158334425}
   explosiveObj: {fileID: 3984419}
+  explosiveObjPrefabs: {fileID: 0}
   blockObj: {fileID: 827801712183129288}
   objPosition: {fileID: 1476046125}
   mouseUi: {fileID: 1736348927}
+  shopInfo: {fileID: 0}
+  shopManager: {fileID: 0}
 --- !u!114 &1853470936
 MonoBehaviour:
   m_ObjectHideFlags: 0

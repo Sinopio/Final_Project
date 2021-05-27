@@ -10,27 +10,36 @@ public class ObjExplosionScript : MonoBehaviour
     private GameObject effect;
     [SerializeField]
     private float power;
+    [SerializeField]
+    private float timeToExplosive;
+    private float time;
+
+    private void Start()
+    {
+        time = 0;
+    }
 
     private void Update()
     {
-        explosion();
+        time += Time.deltaTime;
+        if(time >= timeToExplosive)
+        {
+            explosion();
+        }
     }
 
     void explosion()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
+        Instantiate(effect, transform.position, Quaternion.identity);
+        GameObject createFragmentObj = Instantiate(fragment, gameObject.transform.position, Quaternion.identity) as GameObject;
+        Rigidbody[] allRig = createFragmentObj.GetComponentsInChildren<Rigidbody>();
+        if (allRig.Length > 0)
         {
-            Instantiate(effect, transform.position, Quaternion.identity);
-            GameObject createFragmentObj = Instantiate(fragment, gameObject.transform.position, Quaternion.identity) as GameObject;
-            Rigidbody[] allRig = createFragmentObj.GetComponentsInChildren<Rigidbody>();
-            if(allRig.Length > 0)
+            foreach (var body in allRig)
             {
-                foreach(var body in allRig)
-                {
-                    body.AddExplosionForce(power, transform.position, 1);
-                }
+                body.AddExplosionForce(power, transform.position, 1);
             }
-            Destroy(gameObject);
         }
+        Destroy(gameObject);
     }
 }

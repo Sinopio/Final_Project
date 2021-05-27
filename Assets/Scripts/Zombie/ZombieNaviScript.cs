@@ -10,15 +10,11 @@ public class ZombieNaviScript : MonoBehaviour
 
     private NavMeshAgent agent;
     private ZombieState zombieState;
-    private Animator animator;
-    private Rigidbody rig;
 
     private void Start()
     {
-        animator = GetComponent<Animator>();
         agent = GetComponent<NavMeshAgent>();
         zombieState = GetComponent<ZombieState>();
-        rig = GetComponent<Rigidbody>();
     }
 
     private void Update()
@@ -35,22 +31,22 @@ public class ZombieNaviScript : MonoBehaviour
                 agent.speed = 0f;
                 break;
             case 1: // inRay
-                agent.speed = 5f;
+                agent.speed = zombieState.stateSpeed*1.2f;
                 break;
             case 2: // Atk
                 agent.speed = 0f;
                 break;
             case 3: // 
-                agent.speed = 1.3f;
+                agent.speed = zombieState.stateSpeed * 0.3f;
                 break;
             case 4: // inSoundSector
-                agent.speed = 0.5f;
+                agent.speed = zombieState.stateSpeed * 0.4f;
                 break;
             case 5: // Die
                 agent.speed = 0f;
                 break;
             case 6: // alert
-                agent.speed = 5f;
+                agent.speed = zombieState.stateSpeed * 1.4f;
                 break;
         }
     }

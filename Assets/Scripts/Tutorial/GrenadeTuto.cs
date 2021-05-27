@@ -57,10 +57,13 @@ public class GrenadeTuto : MonoBehaviour
     {
         if (cnt < 3)
         {
+            player.transform.position = new Vector3(0, 1, -22);
+            player.transform.rotation = Quaternion.identity;
             PlayerState.Instance.invenNum = 3;
             playerMove.rotateSpeed = 0;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;
+            PlayerState.Instance.isUION = true;
         }
         if(cnt == 3)
         {
@@ -73,6 +76,7 @@ public class GrenadeTuto : MonoBehaviour
         }
         if (cnt >= 4)
         {
+            PlayerState.Instance.isUION = false;
             playerMove.rotateSpeed = 10;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;

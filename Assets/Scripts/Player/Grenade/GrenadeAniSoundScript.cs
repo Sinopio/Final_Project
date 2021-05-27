@@ -30,6 +30,7 @@ public class GrenadeAniSoundScript : MonoBehaviour
 
     void ThrowGrenade()
     {
+        audio.volume = UpgradeScript.Instance.soundValue;
         if (Input.GetMouseButtonDown(0) && PlayerState.Instance.grenadeNum > 0)
         {
             animator.SetBool("Load", true);

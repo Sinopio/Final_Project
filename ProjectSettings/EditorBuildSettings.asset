@@ -12,14 +12,17 @@ EditorBuildSettings:
     path: Assets/Scenes/Stage1/stage 1Nomal 1.unity
     guid: 666c4c3861c74b34fb676648bebbc8b8
   - enabled: 1
-    path: Assets/Scenes/Stage1/stage 1Hard.unity
-    guid: e482963e62d5148429e50cc056ee0d13
+    path: Assets/Scenes/Stage1/stage1Hard.unity
+    guid: 590b6005830bdde45ae132a8a201a1e3
   - enabled: 1
-    path: Assets/Scenes/Stage2/stage 2 Nomal.unity
-    guid: 2b5a413f8e6897749b38c86d9bf640e2
+    path: Assets/Scenes/Stage2/stage2Nomal.unity
+    guid: 91dc9a71ac7abf5478dc45bf4a6f4a89
   - enabled: 1
-    path: Assets/Scenes/Stage2/stage 2Hard.unity
-    guid: c3d59e361b8edd541a38d12e764177ff
+    path: Assets/Scenes/Stage2/stage2Hard.unity
+    guid: 936abd752b2b8a34a98c1ee4ff945096
+  - enabled: 1
+    path: Assets/Scenes/Tutorial/Tutorial_New.unity
+    guid: cc9b7d371824a064684cbf79b215944c
   - enabled: 1
     path: Assets/Scenes/Tutorial/Tutorial.unity
     guid: 44c5a8fde66faf645923634d575c1958

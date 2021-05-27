@@ -5,17 +5,15 @@ using UnityEngine;
 public class GunNumUIScript : MonoBehaviour
 {
     [SerializeField]
-    private GameObject rifleOn;
+    private GameObject rifle;
     [SerializeField]
-    private GameObject rifleOff;
+    private GameObject pistol;
     [SerializeField]
-    private GameObject pistolOn;
+    private GameObject knife;
     [SerializeField]
-    private GameObject pistolOff;
+    private GameObject grenade;
     [SerializeField]
-    private GameObject knifeOn;
-    [SerializeField]
-    private GameObject knifeOff;
+    private GameObject injection;
 
     private void Update()
     {
@@ -27,29 +25,41 @@ public class GunNumUIScript : MonoBehaviour
         switch(PlayerState.Instance.invenNum)
         {
             case 1:
-                rifleOn.SetActive(true);
-                rifleOff.SetActive(false);
-                pistolOn.SetActive(false);
-                pistolOff.SetActive(true);
-                knifeOn.SetActive(false);
-                knifeOff.SetActive(true);
+                rifle.SetActive(true);
+                pistol.SetActive(false);
+                knife.SetActive(false);
+                grenade.SetActive(false);
+                injection.SetActive(false);
                 break;
             case 2:
-                rifleOn.SetActive(false);
-                rifleOff.SetActive(true);
-                pistolOn.SetActive(true);
-                pistolOff.SetActive(false);
-                knifeOn.SetActive(false);
-                knifeOff.SetActive(true);
+                rifle.SetActive(false);
+                pistol.SetActive(true);
+                knife.SetActive(false);
+                grenade.SetActive(false);
+                injection.SetActive(false);
                 break;
             case 3:
-                rifleOn.SetActive(false);
-                rifleOff.SetActive(true);
-                pistolOn.SetActive(false);
-                pistolOff.SetActive(true);
-                knifeOn.SetActive(true);
-                knifeOff.SetActive(false);
+                rifle.SetActive(false);
+                pistol.SetActive(false);
+                knife.SetActive(true);
+                grenade.SetActive(false);
+                injection.SetActive(false);
                 break;
+            case 10:
+                rifle.SetActive(false);
+                pistol.SetActive(false);
+                knife.SetActive(false);
+                grenade.SetActive(true);
+                injection.SetActive(false);
+                break;
+            case 11:
+                rifle.SetActive(false);
+                pistol.SetActive(false);
+                knife.SetActive(false);
+                grenade.SetActive(false);
+                injection.SetActive(true);
+                break;
+
         }
     }
 }

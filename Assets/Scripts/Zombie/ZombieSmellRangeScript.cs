@@ -8,7 +8,7 @@ public class ZombieSmellRangeScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        if(other.tag == "Player" || other.tag == "Generator")
         {
             inSmellRange = true;
         }
@@ -16,7 +16,7 @@ public class ZombieSmellRangeScript : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" || other.tag == "Generator")
         {
             inSmellRange = false;
         }

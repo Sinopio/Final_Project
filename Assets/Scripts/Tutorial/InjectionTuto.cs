@@ -22,6 +22,7 @@ public class InjectionTuto : MonoBehaviour
     private PlayerMove playerMove;
     [SerializeField]
     private GameObject player;
+    private TutorialText tutorialText;
 
     private bool textExit;
     private bool textFull;
@@ -40,6 +41,7 @@ public class InjectionTuto : MonoBehaviour
     private void Start()
     {
         playerMove = player.GetComponent<PlayerMove>();
+        tutorialText = player.GetComponent<TutorialText>();
     }
 
     void Update()
@@ -59,6 +61,7 @@ public class InjectionTuto : MonoBehaviour
             playerMove.rotateSpeed = 0;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;
+            PlayerState.Instance.isUION = true;
         }
         if (cnt == 3)
         {
@@ -70,8 +73,9 @@ public class InjectionTuto : MonoBehaviour
             
             
         }
-        if(cnt==4)
+        if(cnt >=4)
         {
+            PlayerState.Instance.isUION = false;
             playerMove.rotateSpeed = 10;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;

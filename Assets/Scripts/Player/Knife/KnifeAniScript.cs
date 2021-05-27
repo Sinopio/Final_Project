@@ -19,8 +19,11 @@ public class KnifeAniScript : MonoBehaviour
 
     void Update()
     {
-        meleeAni();
-        callAtkRange();
+        if(PlayerState.Instance.isUION == false)
+        {
+            meleeAni();
+            callAtkRange();
+        }
     }
 
     void meleeAni()

@@ -40,13 +40,17 @@ public class RifleSoundScript : MonoBehaviour
 
     private void Update()
     {
-        RifleAni();
-        ReloadRifle();
-        delayTime += Time.deltaTime;
+        if (PlayerState.Instance.isUION == false)
+        {
+            RifleAni();
+            ReloadRifle();
+            delayTime += Time.deltaTime;
+        }   
     }
 
     void RifleAni()
     {
+        audio.volume = UpgradeScript.Instance.soundValue;
         float X_move = Input.GetAxisRaw("Horizontal");
         float Z_move = Input.GetAxisRaw("Vertical");
 
@@ -61,6 +65,7 @@ public class RifleSoundScript : MonoBehaviour
 
         if (Input.GetMouseButton(0) && checkDelay() && gunManager.deck[0].gunAmmo > 0)
         {
+            animator.SetBool("Reload", false);
             animator.SetBool("Shot", true);
             audio.clip = shot;
             audio.Play();

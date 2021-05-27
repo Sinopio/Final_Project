@@ -22,7 +22,7 @@ public class ShopScript : MonoBehaviour
     private Text shopInfo;
 
     private PlayerMove playerMove;
-    private bool uiActive;
+    public bool uiActive;
     private void Start()
     {
         playerMove = player.GetComponent<PlayerMove>();
@@ -53,6 +53,7 @@ public class ShopScript : MonoBehaviour
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;
             Time.timeScale = 0;
+            PlayerState.Instance.isUION = true;
         }
 
         if (Input.GetKeyDown(KeyCode.N) && uiActive)
@@ -64,6 +65,7 @@ public class ShopScript : MonoBehaviour
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
             Time.timeScale = 1;
+            PlayerState.Instance.isUION = false;
         }
     }
 
@@ -128,6 +130,7 @@ public class ShopScript : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         Time.timeScale = 1;
+        PlayerState.Instance.isUION = false;
     }
 
     public void enterBuyRifleBullet()
@@ -150,8 +153,18 @@ public class ShopScript : MonoBehaviour
         shopInfo.text = "체력회복약을 구매합니다. \n\n\n\n\n\n $:800";
     }
 
+    public void enterBuyExplosive()
+    {
+        shopInfo.text = "폭발물을 설치합니다.\n\n\n\n\n\n $:300";
+    }
+
+    public void enterBuyBlock()
+    {
+        shopInfo.text = "바리케이드를 설치합니다. \n\n\n\n\n\n $:500";
+    }
+
     public void exitButtonUi()
     {
-        shopInfo.text = "편의점 아포칼립스에 어서오세요";
+        shopInfo.text = "상점 메뉴입니다.\n 원하는 아이템을 구매하세요";
     }
 }

@@ -23,7 +23,13 @@ public class GetGunInfoScript : MonoBehaviour
         //gunNum = playerGunScript.pickGunNum;
         if (other.tag == "Bullet")
         {
+            Debug.Log("hit");
             zombieState.stateHp -= gunManagerScript.deck[PlayerState.Instance.invenNum - 1].gunDmg;
+        }
+
+        if(other.tag == "KnifeAtk")
+        {
+            zombieState.stateHp -= gunManagerScript.deck[2].gunDmg;
         }
     }
 }

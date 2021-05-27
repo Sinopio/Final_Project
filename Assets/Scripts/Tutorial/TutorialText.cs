@@ -50,6 +50,10 @@ public class TutorialText : MonoBehaviour
         {
             tutoState = 3;
         }
+        if(PlayerState.Instance.Hp == PlayerState.Instance.MaxHp && injectionTuto.cnt >=4)
+        {
+            tutoState = 4;
+        }
 
         switch(tutoState)
         {
@@ -59,6 +63,7 @@ public class TutorialText : MonoBehaviour
                 tutoTextObj[2].SetActive(false);
                 tutoTextObj[4].SetActive(false);
                 tutoTextObj[6].SetActive(false);
+                tutoTextObj[8].SetActive(false);
                 break;
                 //shot
             case 1:
@@ -66,6 +71,7 @@ public class TutorialText : MonoBehaviour
                 tutoTextObj[2].SetActive(true);
                 tutoTextObj[4].SetActive(false);
                 tutoTextObj[6].SetActive(false);
+                tutoTextObj[8].SetActive(false);
                 break;
                 //grenade
             case 2:
@@ -73,6 +79,7 @@ public class TutorialText : MonoBehaviour
                 tutoTextObj[2].SetActive(false);
                 tutoTextObj[4].SetActive(true);
                 tutoTextObj[6].SetActive(false);
+                tutoTextObj[8].SetActive(false);
                 break;
                 //injection
             case 3:
@@ -80,6 +87,15 @@ public class TutorialText : MonoBehaviour
                 tutoTextObj[2].SetActive(false);
                 tutoTextObj[4].SetActive(false);
                 tutoTextObj[6].SetActive(true);
+                tutoTextObj[8].SetActive(false);
+                break;
+                //shop
+            case 4:
+                tutoTextObj[0].SetActive(false);
+                tutoTextObj[2].SetActive(false);
+                tutoTextObj[4].SetActive(false);
+                tutoTextObj[6].SetActive(false);
+                tutoTextObj[8].SetActive(true);
                 break;
         }
     }

@@ -22,6 +22,8 @@ public class ShotTuto : MonoBehaviour
     private PlayerMove playerMove;
     [SerializeField]
     private GameObject player;
+    [SerializeField]
+    private GameObject tutoObj;
 
     [SerializeField]
     private Transform transform;
@@ -57,16 +59,19 @@ public class ShotTuto : MonoBehaviour
     {
         if (cnt < 4)
         {
-            if(cnt<2)
+            tutoObj.SetActive(false);
+            if (cnt<2)
             {
                 PlayerState.Instance.invenNum = 3;
             }           
             playerMove.rotateSpeed = 0;
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.Confined;
+            PlayerState.Instance.isUION = true;
         }
         if (cnt >= 4)
         {
+            PlayerState.Instance.isUION = false;
             playerMove.rotateSpeed = 10;
             Cursor.visible = false;
             Cursor.lockState = CursorLockMode.Locked;
